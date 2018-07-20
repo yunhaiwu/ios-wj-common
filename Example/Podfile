@@ -1,0 +1,15 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'http://gitlab.jucaicat.net/iOS-Framework/Specs.git'
+
+platform :ios, '7.0'
+
+target :'WJCommon-master' do
+
+pod 'WJJSON'
+pod 'WJLoggingCocoaLumberjack'
+pod 'WJUIRoutable/API'
+pod 'KVOController'
+pod 'Masonry', '1.0.0'
+pod 'Reachability', '3.2'
+
+end
