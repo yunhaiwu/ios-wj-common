@@ -20,53 +20,52 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        [self registerForKVO];
+        [self wj_registerForKVO];
     }
     return self;
 }
 
 -(void)dealloc {
-    [self unregisterFromKVO];
-    [self deallocObject];
-}
-
--(void)deallocObject {
-    /**
-     *  移除当前对象中所有的注册通知
-     */
+    [self wj_unregisterFromKVO];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(NSString *)description {
+-(NSString*)description {
     return [NSString stringWithFormat:@"%@ business description ...",NSStringFromClass(self.class)];
 }
 
 #pragma mark KVO
--(NSKeyValueObservingOptions) observerOptionsForKeypath:(NSString*) keyPath {
+-(NSKeyValueObservingOptions)wj_observerOptionsForKeypath:(NSString*) keyPath {
     return NSKeyValueObservingOptionNew;
 }
-- (void)registerForKVO {
-    for (NSString *keyPath in [self observableKeypaths]) {
-        [self addObserver:self forKeyPath:keyPath options:[self observerOptionsForKeypath:keyPath] context:NULL];
+
+- (void)wj_registerForKVO {
+    NSArray *keypaths = [self wj_observableKeypaths];
+    if (keypaths && keypaths.count > 0) {
+        for (NSString *keyPath in keypaths) {
+            [self addObserver:self forKeyPath:keyPath options:[self wj_observerOptionsForKeypath:keyPath] context:NULL];
+        }
     }
 }
-- (void)unregisterFromKVO {
-    for (NSString *keyPath in [self observableKeypaths]) {
-        [self removeObserver:self forKeyPath:keyPath];
+
+- (void)wj_unregisterFromKVO {
+    NSArray *keypaths = [self wj_observableKeypaths];
+    if (keypaths && keypaths.count > 0) {
+        for (NSString *keyPath in keypaths) {
+            [self removeObserver:self forKeyPath:keyPath];
+        }
     }
 }
-- (NSArray *)observableKeypaths {
+
+- (NSArray*)wj_observableKeypaths {
     return nil;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if (![NSThread isMainThread]) {
-        [self performSelectorOnMainThread:@selector(updateUIForKeypath:) withObject:keyPath waitUntilDone:NO];
-    } else {
-        [self updateUIForKeypath:keyPath];
-    }
+    [self wj_changeForKeypath:keyPath change:change];
 }
-- (void)updateUIForKeypath:(NSString *)keyPath {
-}
+
+-(void)wj_changeForKeypath:(NSString *)keyPath change:(NSDictionary *)change {}
+
 
 @end

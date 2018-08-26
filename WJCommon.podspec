@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "WJCommon"
-s.version      = "1.0"
+s.version      = "2.0"
 s.summary      = "iOS Objective-C,公共组件开发包."
 
 s.description  = <<-DESC
@@ -47,7 +47,6 @@ s.subspec 'UI' do |ui|
     ui.dependency 'WJCommon/Core'
     ui.dependency 'WJCommon/Utils'
     ui.dependency 'Masonry', '1.0.1'
-    ui.dependency 'WJUIRoutable/API'
 end
 
 s.subspec 'NetworkService' do |ns|
@@ -60,6 +59,6 @@ end
 
 
 s.dependency "WJJSON"
-s.dependency "WJLoggingAPI"
+s.dependency "WJLoggingAPI", '>=2.0'
 
 end

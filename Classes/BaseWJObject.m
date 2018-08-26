@@ -15,7 +15,6 @@
 
 #import "BaseWJObject.h"
 #import "WJJSONUtils.h"
-#import "WJLoggerFactory.h"
 
 @implementation BaseWJObject
 

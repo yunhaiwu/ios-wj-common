@@ -64,7 +64,6 @@
 		6082712E1CD0953900A75B36 /* UINavigationController+SwipeBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6082712B1CD0953900A75B36 /* UINavigationController+SwipeBack.m */; };
 		6082712F1CD0953900A75B36 /* UIViewController+SwipeBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6082712D1CD0953900A75B36 /* UIViewController+SwipeBack.m */; };
 		60949C401D2A1ED600378DF7 /* UIScrollView+WJFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 60949C3F1D2A1ED600378DF7 /* UIScrollView+WJFrame.m */; };
-		60A8FB921EFA12B90089CCC0 /* WJAmountFormatUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A8FB911EFA12B90089CCC0 /* WJAmountFormatUtils.m */; };
 		60C063561FD2D69700FAD188 /* BaseWJNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C063551FD2D69700FAD188 /* BaseWJNavigationBar.m */; };
 		60C1226C1DD8164800E17EDF /* WJNetworkContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C122691DD8164800E17EDF /* WJNetworkContext.m */; };
 		60C1226D1DD8164800E17EDF /* WJNetworkContextConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C1226B1DD8164800E17EDF /* WJNetworkContextConfig.m */; };
@@ -198,8 +197,6 @@
 		6082712D1CD0953900A75B36 /* UIViewController+SwipeBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SwipeBack.m"; sourceTree = "<group>"; };
 		60949C3E1D2A1ED600378DF7 /* UIScrollView+WJFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+WJFrame.h"; sourceTree = "<group>"; };
 		60949C3F1D2A1ED600378DF7 /* UIScrollView+WJFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+WJFrame.m"; sourceTree = "<group>"; };
-		60A8FB901EFA12B90089CCC0 /* WJAmountFormatUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJAmountFormatUtils.h; sourceTree = "<group>"; };
-		60A8FB911EFA12B90089CCC0 /* WJAmountFormatUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJAmountFormatUtils.m; sourceTree = "<group>"; };
 		60C063541FD2D69700FAD188 /* BaseWJNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWJNavigationBar.h; sourceTree = "<group>"; };
 		60C063551FD2D69700FAD188 /* BaseWJNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWJNavigationBar.m; sourceTree = "<group>"; };
 		60C122681DD8164800E17EDF /* WJNetworkContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJNetworkContext.h; sourceTree = "<group>"; };
@@ -314,13 +311,13 @@
 		3D28AD371BFC5C380074C476 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				60C122661DD8159900E17EDF /* NetworkService */,
 				3D28AD381BFC5C380074C476 /* AbstractWJBusinessObject.h */,
 				3D28AD391BFC5C380074C476 /* AbstractWJBusinessObject.m */,
 				3D1832361C05BF5C008DFCA1 /* BaseWJEnum.h */,
 				3D1832371C05BF5C008DFCA1 /* BaseWJEnum.m */,
 				3D28AD3A1BFC5C380074C476 /* BaseWJObject.h */,
 				3D28AD3B1BFC5C380074C476 /* BaseWJObject.m */,
+				60C122661DD8159900E17EDF /* NetworkService */,
 				3D03BD5D1C210F9E008C4665 /* NSArray+WJExtension.h */,
 				3D03BD5E1C210F9E008C4665 /* NSArray+WJExtension.m */,
 				3DCB89951C4499D9007EA3D9 /* NSData+WJArchive.h */,
@@ -434,8 +431,6 @@
 				3DCB89991C449BDE007EA3D9 /* WJCommonUtils.h */,
 				608126761D9636C60056C8F2 /* WJVersionUtils.h */,
 				608126771D9636C60056C8F2 /* WJVersionUtils.m */,
-				60A8FB901EFA12B90089CCC0 /* WJAmountFormatUtils.h */,
-				60A8FB911EFA12B90089CCC0 /* WJAmountFormatUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -485,8 +480,6 @@
 				3D28AD191BFC5BE90074C476 /* Sources */,
 				3D28AD1A1BFC5BE90074C476 /* Frameworks */,
 				3D28AD1B1BFC5BE90074C476 /* Resources */,
-				E65B0FC2BE832795B96A0C57 /* [CP] Embed Pods Frameworks */,
-				69727A29118B076D0C67B474 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -545,21 +538,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		69727A29118B076D0C67B474 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WJCommon-master/Pods-WJCommon-master-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D7A0B2E0E17564B1A20849F7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -576,21 +554,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E65B0FC2BE832795B96A0C57 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WJCommon-master/Pods-WJCommon-master-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -635,7 +598,6 @@
 				604E58391CF2DBBE00300021 /* BaseWJCollectionCell.m in Sources */,
 				6082712E1CD0953900A75B36 /* UINavigationController+SwipeBack.m in Sources */,
 				60949C401D2A1ED600378DF7 /* UIScrollView+WJFrame.m in Sources */,
-				60A8FB921EFA12B90089CCC0 /* WJAmountFormatUtils.m in Sources */,
 				3D28AD6F1BFC5C380074C476 /* WJFileUtils.m in Sources */,
 				3D03BD591C210F81008C4665 /* NSMutableArray+WJExtension.m in Sources */,
 				3D28AD221BFC5BE90074C476 /* main.m in Sources */,

@@ -26,15 +26,21 @@
 }
 
 - (void) wj_registerForKVO {
-	for (NSString *keyPath in [self wj_observableKeypaths]) {
-		[self addObserver:self forKeyPath:keyPath options:[self wj_observerOptionsForKeypath:keyPath] context:NULL];
-	}
+    NSArray *keypaths = [self wj_observableKeypaths];
+    if (keypaths && keypaths.count > 0) {
+        for (NSString *keyPath in keypaths) {
+            [self addObserver:self forKeyPath:keyPath options:[self wj_observerOptionsForKeypath:keyPath] context:NULL];
+        }
+    }
 }
 
 - (void) wj_unregisterFromKVO {
-	for (NSString *keyPath in [self wj_observableKeypaths]) {
-		[self removeObserver:self forKeyPath:keyPath];
-	}
+    NSArray *keypaths = [self wj_observableKeypaths];
+    if (keypaths && keypaths.count > 0) {
+        for (NSString *keyPath in keypaths) {
+            [self removeObserver:self forKeyPath:keyPath];
+        }
+    }
 }
 
 - (NSArray *) wj_observableKeypaths {
@@ -42,14 +48,10 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	if (![NSThread isMainThread]) {
-		[self performSelectorOnMainThread:@selector(wj_changeForKeypath:) withObject:keyPath waitUntilDone:NO];
-	} else {
-		[self wj_changeForKeypath:keyPath];
-	}
+    [self wj_changeForKeypath:keyPath change:change];
 }
 
-- (void)wj_changeForKeypath:(NSString *)keyPath {}
+-(void) wj_changeForKeypath:(NSString*)keyPath change:(NSDictionary *)change {}
 
 -(void)dealloc {
     [self wj_unregisterFromKVO];
@@ -67,7 +69,6 @@
             break;
         }
     }
-    
     [self wj_loadSubViews];
 }
 

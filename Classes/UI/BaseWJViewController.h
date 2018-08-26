@@ -14,8 +14,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WJLoggingMacros.h"
-#import "IWJRouterViewController.h"
+#import "WJLoggingAPI.h"
 #import "IWJLoadingView.h"
 #import "IWJViewModel.h"
 #import "Masonry.h"
@@ -29,20 +28,7 @@ extern NSString * const WJViewControllerTitleKey;
 /**
  *  视图控制器基类
  */
-@interface BaseWJViewController : UIViewController<IWJRouterViewController>
-
-#pragma mark IWJRouterViewController
-/**
- *  路由委托
- */
-@property (nonatomic, weak) id<IWJRouterViewControllerDelegate> routerDelegate;
-
-
-#pragma mark custom
-/**
- *  路由参数
- */
-@property (nonatomic, strong) NSDictionary *routerParams;
+@interface BaseWJViewController : UIViewController
 
 /**
  *  加载视图
@@ -104,7 +90,7 @@ extern NSString * const WJViewControllerTitleKey;
 /**
  *  指定keypath有修改(子类重写实现)
  */
--(void) wj_changeForKeypath:(NSString*) keypath;
+-(void) wj_changeForKeypath:(NSString*)keyPath change:(NSDictionary *)change;
 
 /**
  *  当前视图控制器ViewModel

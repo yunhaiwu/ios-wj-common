@@ -1,43 +1,33 @@
 PODS:
-  - CocoaLumberjack (2.2.0):
-    - CocoaLumberjack/Default (= 2.2.0)
-    - CocoaLumberjack/Extensions (= 2.2.0)
-  - CocoaLumberjack/Core (2.2.0)
-  - CocoaLumberjack/Default (2.2.0):
-    - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.2.0):
-    - CocoaLumberjack/Default
   - KVOController (1.2.0)
   - Masonry (1.0.0)
   - Reachability (3.2)
-  - WJConfig (1.0)
-  - WJJSON (1.1)
-  - WJLoggingAPI (1.0)
-  - WJLoggingCocoaLumberjack (1.0.2):
-    - CocoaLumberjack (= 2.2.0)
-    - WJLoggingAPI
-  - WJUIRoutable/API (2.0):
-    - WJConfig
+  - WJJSON (1.0.1)
+  - WJLoggingAPI (2.0)
 
 DEPENDENCIES:
   - KVOController
   - Masonry (= 1.0.0)
   - Reachability (= 3.2)
   - WJJSON
-  - WJLoggingCocoaLumberjack
-  - WJUIRoutable/API
+  - WJLoggingAPI (>= 2.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - KVOController
+    - Masonry
+    - Reachability
+  https://github.com/yunhaiwu/ios-wj-framework-cocoapods-specs.git:
+    - WJJSON
+    - WJLoggingAPI
 
 SPEC CHECKSUMS:
-  CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
   Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  WJConfig: a907d4e3708d3906f14457ac1abe35a4a8d39dcb
-  WJJSON: 4175ff0a4954079afcf3f1ae0a27e32e9c022680
-  WJLoggingAPI: baf950e1a755c322cbb6dafbe57d17c629dad20f
-  WJLoggingCocoaLumberjack: b12edb7e122a363f52e9bd8f97e99e4560ac42ae
-  WJUIRoutable: 4612851f15d783b80c084476e06da0c54381df7e
+  WJJSON: e97aac774540ada0d8e76de7ffc8c724e4741d8e
+  WJLoggingAPI: 183581a351d51f93ec9900a3cc5f2df15b907de3
 
-PODFILE CHECKSUM: 41648bdfe9ccbc149bbef887cb6d5f7740d66b97
+PODFILE CHECKSUM: a4ad045d485eca94fdad8397c83631e77a2c805c
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.3

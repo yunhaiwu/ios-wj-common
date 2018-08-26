@@ -16,18 +16,19 @@
 #import <Foundation/Foundation.h>
 
 //POST
-#define WJ_NOTIFY_POST(notification)                                        [NSNotificationCenter wj_postNotificationOnMainThread:notification]
-#define WJ_NOTIFY_POST_WAIT(notification,wait)                              [NSNotificationCenter wj_postNotificationOnMainThread:notification waitUntilDone:wait]
-#define WJ_NOTIFY_POST_NAME_OBJECT(name,object)                             [NSNotificationCenter wj_postNotificationOnMainThreadWithName:name object:object]
-#define WJ_NOTIFY_POST_NAME_OBJECT_USERINFO(name,object,userInfo)           [NSNotificationCenter wj_postNotificationOnMainThreadWithName:name object:object userInfo:userInfo]
-#define WJ_NOTIFY_POST_NAME_OBJECT_USERINFO_WAIT(name,object,userInfo,wait) [NSNotificationCenter wj_postNotificationOnMainThreadWithName:name object:object userInfo:userInfo waitUntilDone:wait]
+#define WJ_NOTIFY_POST(N)                                   [NSNotificationCenter wj_postNotificationOnMainThread:N]
+#define WJ_NOTIFY_POST_WAIT(N,W)                            [NSNotificationCenter wj_postNotificationOnMainThread:N waitUntilDone:W]
+#define WJ_NOTIFY_POST_NAME_OBJECT(N,O)                     [NSNotificationCenter wj_postNotificationOnMainThreadWithName:N object:O]
+#define WJ_NOTIFY_POST_NAME_OBJECT_USERINFO(N,O,U)          [NSNotificationCenter wj_postNotificationOnMainThreadWithName:N object:O userInfo:U]
+#define WJ_NOTIFY_POST_NAME_OBJECT_USERINFO_WAIT(N,O,U,W)   [NSNotificationCenter wj_postNotificationOnMainThreadWithName:N object:O userInfo:U waitUntilDone:W]
 
 //REMOVE
-#define WJ_NOTIFY_REMOVE(observer)                                          [[NSNotificationCenter defaultCenter] removeObserver:observer]
-#define WJ_NOTIFY_REMOVE_NAME_OBJECT(observer,name,object)                  [[NSNotificationCenter defaultCenter] removeObserver:observer name:name object:object]
+#define WJ_NOTIFY_REMOVE(OBS)                               [[NSNotificationCenter defaultCenter] removeObserver:OBS]
+#define WJ_NOTIFY_REMOVE_NAME_OBJECT(OBS,N,O)               [[NSNotificationCenter defaultCenter] removeObserver:OBS name:N object:O]
 
 //ADD
-#define WJ_NOTIFY_ADD_OBSERVER(observer,selector,name,object)               [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:name object:object]
+#define WJ_NOTIFY_ADD_OBSERVER(OBS,S,N,O)                   [[NSNotificationCenter defaultCenter] addObserver:OBS selector:S name:N object:O]
+
 
 @interface NSNotificationCenter (WJExtension)
 

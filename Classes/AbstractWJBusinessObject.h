@@ -14,7 +14,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WJLoggingMacros.h"
+#import "WJLoggingAPI.h"
 
 /**
  *  业务逻辑基类
@@ -22,9 +22,11 @@
 @interface AbstractWJBusinessObject : NSObject
 
 /**
- *  销毁对象调用
+ *  观察变化属性值列表（子类继承）
+ *
+ *  @return 属性值列表
  */
--(void) deallocObject;
+-(NSArray*) wj_observableKeypaths;
 
 /**
  *  KVO options
@@ -33,20 +35,11 @@
  *
  *  @return options
  */
--(NSKeyValueObservingOptions) observerOptionsForKeypath:(NSString*) keyPath;
+-(NSKeyValueObservingOptions) wj_observerOptionsForKeypath:(NSString*)keyPath;
 
 /**
  *  属性发生变化调用方法（子类继承实现）
- *
- *  @param keyPath 属性名称
  */
--(void)updateUIForKeypath:(NSString*) keyPath;
-
-/**
- *  观察变化属性值列表（子类继承）
- *
- *  @return 属性值列表
- */
--(NSArray*)observableKeypaths;
+-(void) wj_changeForKeypath:(NSString*)keyPath change:(NSDictionary *)change;
 
 @end

@@ -17,23 +17,8 @@
 
 @implementation BaseWJTabBarController
 
-+(instancetype)wj_instance {
-    BaseWJTabBarController *tabBarController = nil;
-    @try {
-        NSString *className = NSStringFromClass(self);
-        NSString *nibFilePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.nib",className]];
-        NSString *iphoneNibFilePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@~iphone.nib",className]];
-        NSString *ipadNibFilePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@~ipad.nib",className]];
-        if ([[NSFileManager defaultManager] fileExistsAtPath:iphoneNibFilePath] || [[NSFileManager defaultManager] fileExistsAtPath:nibFilePath] || [[NSFileManager defaultManager] fileExistsAtPath:ipadNibFilePath]) {
-            tabBarController = [[self alloc] initWithNibName:className bundle:[NSBundle mainBundle]];
-        } else {
-            tabBarController = [[self alloc] init];
-        }
-    }
-    @catch (NSException *exception) {
-        tabBarController = [[self alloc] init];
-    }
-    return tabBarController;
++ (instancetype)wj_instance {
+    return [[self alloc] init];;
 }
 
 @end

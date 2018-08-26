@@ -49,7 +49,6 @@
 //                }
 //            }
 //        }
-//        
 //        self.delaysContentTouches = NO;
         [self addContentSizeChangeKVO];
         _initTag = YES;

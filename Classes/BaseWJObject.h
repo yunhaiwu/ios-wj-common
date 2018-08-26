@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WJJSON.h"
-#import "WJLoggingMacros.h"
+#import "WJLoggingAPI.h"
 
 @interface BaseWJObject : NSObject<NSCoding,NSCopying,IWJJSONObject>
 

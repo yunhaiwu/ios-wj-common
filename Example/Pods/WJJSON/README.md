@@ -7,6 +7,8 @@
 ### CocoaPods 安装
     pod WJJSON
 
+	source：https://github.com/yunhaiwu/ios-wj-framework-cocoapods-specs.git
+
 ### 要求
 * ARC支持
 * iOS 5.0+

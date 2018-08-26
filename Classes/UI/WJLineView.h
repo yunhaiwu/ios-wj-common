@@ -20,57 +20,37 @@
  */
 typedef NS_ENUM(NSInteger, WJLineDrawPosition) {
     
-    /**
-     *  垂直居中
-     */
+    //垂直居中
     WJLineDrawPositionVerticalCenter = 0,
     
-    /**
-     *  水平居中
-     */
+    //水平居中
     WJLineDrawPositionHorizontalCenter = 1,
     
-    /**
-     *  底部
-     */
+    //底部
     WJLineDrawPositionBottom = 2,
     
-    /**
-     *  顶部
-     */
+    //顶部
     WJLineDrawPositionTop = 3,
     
-    /**
-     * 左边
-     */
+    //左边
     WJLineDrawPositionLeft = 4,
     
-    /**
-     * 右边
-     */
+    //右边
     WJLineDrawPositionRight = 5,
 };
 
-/**
- *  线条样式
- */
+//线条样式
 typedef NS_ENUM(NSInteger, WJLineStyle) {
     
-    /**
-     * 实线
-     */
+    //实线
     WJLineStyleSolid = 0,
     
-    /**
-     * 虚线
-     */
+    //虚线
     WJLineStyleDotted = 1,
 };
 
 
-/**
- *  线条视图
- */
+//线条视图
 @interface WJLineView : BaseWJView
 
 /**

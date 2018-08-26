@@ -319,36 +319,13 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
     }
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if (![NSThread isMainThread]) {
-        [self performSelectorOnMainThread:@selector(wj_changeForKeypath:) withObject:keyPath waitUntilDone:NO];
-    } else {
-        [self wj_changeForKeypath:keyPath];
-    }
+    [self wj_changeForKeypath:keyPath change:change];
 }
 
 -(NSArray*) wj_observableKeypaths {
     return nil;
 }
 
--(void) wj_changeForKeypath:(NSString*) keypath {}
-
-
-#pragma mark IQWRouterViewController
--(id)initWithURL:(NSString *)URL routerParams:(NSDictionary *)params {
-    self.routerParams = params;
-    self = [super init];
-    if (self) {
-        if (!_wjInitTag) {
-            [self wj_vcInit];    
-            _wjInitTag = YES;
-        }
-    }
-    return self;
-}
-
-#pragma mark IQWRouterViewControllerDelegate
--(void) viewController:(UIViewController*) viewController routerParams:(NSDictionary*) params {
-    [_routerDelegate viewController:viewController routerParams:params];
-}
+-(void)wj_changeForKeypath:(NSString *)keyPath change:(NSDictionary *)change {}
 
 @end

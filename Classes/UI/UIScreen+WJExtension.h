@@ -25,8 +25,6 @@
 #define WJ_IS_IPHONEX               ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
 /**
- *  @author 吴云海
- *
  *  UIScreen 扩展
  */
 @interface UIScreen (WJExtension)

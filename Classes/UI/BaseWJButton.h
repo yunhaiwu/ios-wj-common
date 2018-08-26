@@ -14,7 +14,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WJLoggingMacros.h"
+#import "WJLoggingAPI.h"
 
 /**
  *  自定义UIButton 基类
@@ -45,10 +45,8 @@
 
 /**
  *  属性发生变化调用方法（子类继承实现）
- *
- *  @param keyPath 属性名称
  */
--(void) wj_changeForKeypath:(NSString*) keyPath;
+-(void) wj_changeForKeypath:(NSString*)keyPath change:(NSDictionary *)change;
 
 /**
  *  创建一个实例

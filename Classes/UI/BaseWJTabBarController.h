@@ -19,5 +19,7 @@
  *  TabBar Controller 基类
  */
 @interface BaseWJTabBarController : UITabBarController
-+(instancetype) wj_instance;
+
++ (instancetype) wj_instance;
+
 @end

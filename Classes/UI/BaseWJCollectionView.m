@@ -39,9 +39,7 @@
 
 -(void) wjTableInit {
     if (!_initTag) {
-        
         self.canCancelContentTouches = YES;
-        
         UIView *wrapView = self.subviews.firstObject;
         if (wrapView && [NSStringFromClass(wrapView.class) hasSuffix:@"WrapperView"]) {
             for (UIGestureRecognizer *gesture in wrapView.gestureRecognizers) {
@@ -51,7 +49,6 @@
                 }
             }
         }
-        
         self.delaysContentTouches = NO;
         [self addContentSizeChangeKVO];
         _initTag = YES;

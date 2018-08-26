@@ -14,7 +14,7 @@
 //
 
 #import "NSData+WJArchive.h"
-#import "WJLoggingMacros.h"
+#import "WJLoggingAPI.h"
 
 @implementation NSData (WJArchive)
 
