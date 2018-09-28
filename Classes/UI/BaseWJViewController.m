@@ -196,11 +196,6 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
     }
 }
 
-
--(BOOL)shouldAutorotate {
-    return NO;
-}
-
 //-(void)viewDidLayoutSubviews {
 //    [super viewDidLayoutSubviews];
 //    if ([self wj_existNavigationBar]) {
@@ -327,5 +322,18 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
 }
 
 -(void)wj_changeForKeypath:(NSString *)keyPath change:(NSDictionary *)change {}
+
+
+
+
+#pragma mark InterfaceOrientations
+
+-(BOOL)shouldAutorotate {
+    return NO;
+}
+
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 @end

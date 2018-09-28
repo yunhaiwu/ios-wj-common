@@ -21,4 +21,18 @@
     return [[self alloc] init];;
 }
 
+-(BOOL)shouldAutorotate {
+    if (self.selectedViewController) {
+        return [self.selectedViewController shouldAutorotate];
+    }
+    return NO;
+}
+
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    if (self.selectedViewController) {
+        return [self.selectedViewController supportedInterfaceOrientations];
+    }
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 @end
