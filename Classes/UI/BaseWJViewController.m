@@ -336,4 +336,8 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
     return UIInterfaceOrientationMaskPortrait;
 }
 
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationPortrait;
+}
+
 @end

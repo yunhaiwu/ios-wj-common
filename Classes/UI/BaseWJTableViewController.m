@@ -166,4 +166,8 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationPortrait;
+}
+
 @end

@@ -35,4 +35,11 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    if (self.selectedViewController) {
+        return [self.selectedViewController preferredInterfaceOrientationForPresentation];
+    }
+    return UIInterfaceOrientationPortrait;
+}
+
 @end
