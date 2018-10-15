@@ -16,6 +16,12 @@
 #import "WJNetworkContext.h"
 #import "WJNetworkContextConfig.h"
 
+@interface WJNetworkContext ()
+
+@property(nonatomic, strong) Reachability *reachability;
+
+@end
+
 @implementation WJNetworkContext
 
 DEF_SINGLETON_INIT(WJNetworkContext)
@@ -25,7 +31,7 @@ DEF_SINGLETON_INIT(WJNetworkContext)
 }
 
 -(NetworkStatus) currentStatus {
-    return [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
+    return [self.reachability currentReachabilityStatus];
 }
 
 -(void) addNotification:(id) target selector:(SEL) selector {
@@ -41,13 +47,12 @@ DEF_SINGLETON_INIT(WJNetworkContext)
 
 -(void)singleInit {
     NSString *host = [[WJNetworkContextConfig sharedInstance] serverHost];
-    
     if (host) {
-        Reachability *reachability = [Reachability reachabilityWithHostname:host];
-        [reachability startNotifier];
+        self.reachability = [Reachability reachabilityWithHostname:host];
+        [self.reachability startNotifier];
     } else {
-        Reachability *reachability = [Reachability reachabilityForInternetConnection];
-        [reachability startNotifier];
+        self.reachability = [Reachability reachabilityForInternetConnection];
+        [self.reachability startNotifier];
     }
 }
 

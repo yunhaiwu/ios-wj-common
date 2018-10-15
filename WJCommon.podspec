@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "WJCommon"
-s.version      = "2.0"
+s.version      = "2.0.1"
 s.summary      = "iOS Objective-C,公共组件开发包."
 
 s.description  = <<-DESC
