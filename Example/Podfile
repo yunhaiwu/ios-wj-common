@@ -5,11 +5,12 @@ platform :ios, '7.0'
 
 target :'WJCommon-master' do
 
-pod 'WJJSON'
+pod 'YYKit', '~> 1.0'
 #pod 'WJLoggingCocoaLumberjack'
 pod 'KVOController'
 pod 'Masonry', '1.0.0'
 pod 'Reachability', '3.2'
 pod 'WJLoggingAPI', '>=2.0'
+pod 'WJAppContext'
 
 end

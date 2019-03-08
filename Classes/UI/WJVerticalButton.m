@@ -12,9 +12,9 @@
 
 @implementation WJVerticalButton
 
--(void)wj_loadSubViews {
-    [super wj_loadSubViews];
-    [self wj_setFont:self.titleLabel.font];
+-(void)wjLoadSubViews {
+    [super wjLoadSubViews];
+    [self wjSetFont:self.titleLabel.font];
     [self setBackgroundColor:[UIColor clearColor]];
 }
 
@@ -26,7 +26,7 @@
     CGSize imgSize = CGSizeZero;
     CGSize titleSize = CGSizeZero;
     if (img) imgSize = [img size];
-    if (t) titleSize = [t wj_sizeWithFont:self.titleLabel.font boundingSize:CGSizeMake(self.bounds.size.width, self.bounds.size.height) mode:NSLineBreakByWordWrapping];
+    if (t) titleSize = [t wjSizeWithFont:self.titleLabel.font boundingSize:CGSizeMake(self.bounds.size.width, self.bounds.size.height) mode:NSLineBreakByWordWrapping];
     
     UIEdgeInsets titleEdge = UIEdgeInsetsMake((imgSize.height+_spacing+titleSize.height)/2.0f + (imgSize.height-titleSize.height)/2, -imgSize.width, 0, 0);
     [self setTitleEdgeInsets:titleEdge];
@@ -34,7 +34,7 @@
     [self setImageEdgeInsets:imgEdge];
 }
 
--(void)wj_setFont:(UIFont *)font {
+-(void)wjSetFont:(UIFont *)font {
     [self.titleLabel setFont:font];
     [self refreshUI];
 }
@@ -53,11 +53,11 @@
     }
 }
 
--(NSArray *)wj_observableKeypaths {
+-(NSArray *)wjObservableKeypaths {
     return @[@"highlighted",@"spacing",@"selected",@"enabled"];
 }
 
--(void)wj_changeForKeypath:(NSString *)keyPath {
+-(void)wjChangeForKeypath:(NSString *)keyPath {
     if (WJ_STRING_EQUAL(keyPath, @"highlighted") || WJ_STRING_EQUAL(keyPath, @"selected") || WJ_STRING_EQUAL(keyPath, @"enabled") || WJ_STRING_EQUAL(keyPath, @"spacing")) {
         [self refreshUI];
     }

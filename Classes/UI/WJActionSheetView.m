@@ -8,10 +8,10 @@
 
 #import "WJActionSheetView.h"
 #import "Masonry.h"
-#import "BaseWJObject.h"
+#import "AbstractWJObject.h"
 
 
-@interface WJActionSheetViewAppearanceParams : BaseWJObject
+@interface WJActionSheetViewAppearanceParams : AbstractWJObject
 /**
  *  背景透明度 0.0f ~ 1.0f
  */
@@ -76,8 +76,8 @@
 
 @implementation WJActionSheetView
 
--(void)wj_loadSubViews {
-    [super wj_loadSubViews];
+-(void)wjLoadSubViews {
+    [super wjLoadSubViews];
     if (!_params) {
         self.params = [[WJActionSheetViewAppearanceParams alloc] init];
     }

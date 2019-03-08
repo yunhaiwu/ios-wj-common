@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (!_containerView) {
-        WJActionSheetView *v = [[WJActionSheetView alloc] initWithContentView:[TextActionSheetContentView wj_instance]];
+        WJActionSheetView *v = [[WJActionSheetView alloc] initWithContentView:[TextActionSheetContentView wjInstance]];
         [self.view addSubview:v];
         _containerView = v;
         [v mas_makeConstraints:^(MASConstraintMaker *make) {

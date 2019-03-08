@@ -18,76 +18,76 @@
 
 @implementation UIScrollView (WJFrame)
 
--(CGFloat)wj_contnetWidth {
+-(CGFloat)wjContentWidth {
     return self.contentSize.width;
 }
 
--(void)setWj_contnetWidth:(CGFloat)wj_contnetWidth {
-    if (self.contentSize.width == wj_contnetWidth) return;
-    self.contentSize = CGSizeMake(wj_contnetWidth, self.contentSize.height);
+-(void)setWjContentWidth:(CGFloat)wjContentWidth {
+    if (self.contentSize.width == wjContentWidth) return;
+    self.contentSize = CGSizeMake(wjContentWidth, self.contentSize.height);
 }
 
--(CGFloat)wj_contentHeight {
+-(CGFloat)wjContentHeight {
     return self.contentSize.height;
 }
 
--(void)setWj_contentHeight:(CGFloat)wj_contentHeight {
-    if (self.contentSize.height == wj_contentHeight) return;
-    self.contentSize = CGSizeMake(self.contentSize.width, wj_contentHeight);
+-(void)setWjContentHeight:(CGFloat)wjContentHeight {
+    if (self.contentSize.height == wjContentHeight) return;
+    self.contentSize = CGSizeMake(self.contentSize.width, wjContentHeight);
 }
 
--(CGFloat)wj_contentOffsetX {
+-(CGFloat)wjContentOffsetX {
     return self.contentOffset.x;
 }
 
--(void)setWj_contentOffsetX:(CGFloat)wj_contentOffsetX {
-    if (self.contentOffset.x == wj_contentOffsetX) return;
-    self.contentOffset = CGPointMake(wj_contentOffsetX, self.contentOffset.y);
+-(void)setWjContentOffsetX:(CGFloat)wjContentOffsetX {
+    if (self.contentOffset.x == wjContentOffsetX) return;
+    self.contentOffset = CGPointMake(wjContentOffsetX, self.contentOffset.y);
 }
 
--(CGFloat)wj_contentOffsetY {
+-(CGFloat)wjContentOffsetY {
     return self.contentOffset.y;
 }
 
--(void)setWj_contentOffsetY:(CGFloat)wj_contentOffsetY {
-    if (self.contentOffset.y == wj_contentOffsetY) return;
-    self.contentOffset = CGPointMake(self.contentOffset.x, wj_contentOffsetY);
+-(void)setWjContentOffsetY:(CGFloat)wjContentOffsetY {
+    if (self.contentOffset.y == wjContentOffsetY) return;
+    self.contentOffset = CGPointMake(self.contentOffset.x, wjContentOffsetY);
 }
 
--(CGFloat)wj_contentInsetTop {
+-(CGFloat)wjContentInsetTop {
     return self.contentInset.top;
 }
 
--(void)setWj_contentInsetTop:(CGFloat)wj_contentInsetTop {
-    if (self.contentInset.top == wj_contentInsetTop) return;
-    self.contentInset = UIEdgeInsetsMake(wj_contentInsetTop, self.contentInset.left, self.contentInset.bottom, self.contentInset.right);
+-(void)setWjContentInsetTop:(CGFloat)wjContentInsetTop {
+    if (self.contentInset.top == wjContentInsetTop) return;
+    self.contentInset = UIEdgeInsetsMake(wjContentInsetTop, self.contentInset.left, self.contentInset.bottom, self.contentInset.right);
 }
 
--(CGFloat)wj_contentInsetBottom {
+-(CGFloat)wjContentInsetBottom {
     return self.contentInset.bottom;
 }
 
--(void)setWj_contentInsetBottom:(CGFloat)wj_contentInsetBottom {
-    if (self.contentInset.bottom == wj_contentInsetBottom) return;
-    self.contentInset = UIEdgeInsetsMake(self.contentInset.top, self.contentInset.left, wj_contentInsetBottom, self.contentInset.right);
+-(void)setWjContentInsetBottom:(CGFloat)wjContentInsetBottom {
+    if (self.contentInset.bottom == wjContentInsetBottom) return;
+    self.contentInset = UIEdgeInsetsMake(self.contentInset.top, self.contentInset.left, wjContentInsetBottom, self.contentInset.right);
 }
 
--(CGFloat)wj_contentInsetLeft {
+-(CGFloat)wjContentInsetLeft {
     return self.contentInset.left;
 }
 
--(void)setWj_contentInsetLeft:(CGFloat)wj_contentInsetLeft {
-    if (self.contentInset.left == wj_contentInsetLeft) return;
-    self.contentInset = UIEdgeInsetsMake(self.contentInset.top, wj_contentInsetLeft, self.contentInset.bottom, self.contentInset.right);
+-(void)setWjContentInsetLeft:(CGFloat)wjContentInsetLeft {
+    if (self.contentInset.left == wjContentInsetLeft) return;
+    self.contentInset = UIEdgeInsetsMake(self.contentInset.top, wjContentInsetLeft, self.contentInset.bottom, self.contentInset.right);
 }
 
--(CGFloat)wj_contentInsetRight {
+-(CGFloat)wjContentInsetRight {
     return self.contentInset.right;
 }
 
--(void)setWj_contentInsetRight:(CGFloat)wj_contentInsetRight {
-    if (self.contentInset.right == wj_contentInsetRight) return;
-    self.contentInset = UIEdgeInsetsMake(self.contentInset.top, self.contentInset.left, self.contentInset.bottom, wj_contentInsetRight);
+-(void)setWjContentInsetRight:(CGFloat)wjContentInsetRight {
+    if (self.contentInset.right == wjContentInsetRight) return;
+    self.contentInset = UIEdgeInsetsMake(self.contentInset.top, self.contentInset.left, self.contentInset.bottom, wjContentInsetRight);
 }
 
 

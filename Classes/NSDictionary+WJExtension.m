@@ -17,38 +17,36 @@
 
 @implementation NSDictionary (WJExtension)
 
-- (void) wj_each:(void (^)(id k, id v))block {
+- (void)wjEach:(void (^)(id k, id v))block {
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         block(key, obj);
     }];
 }
 
-- (void) wj_eachKey:(void (^)(id k))block {
+- (void) wjEachKey:(void (^)(id k))block {
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         block(key);
     }];
 }
 
-- (void) wj_eachValue:(void (^)(id v))block {
+- (void) wjEachValue:(void (^)(id v))block {
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         block(obj);
     }];
 }
 
-- (NSArray *) wj_map:(id (^)(id key, id value))block {
+- (NSArray *)wjMap:(id (^)(id key, id value))block {
     NSMutableArray *array = [NSMutableArray array];
-    
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         id object = block(key, obj);
         if (object) {
             [array addObject:object];
         }
     }];
-    
     return array;
 }
 
-- (BOOL) wj_hasKey:(id)key {
+- (BOOL) wjHasKey:(id)key {
     return !!self[key];
 }
 

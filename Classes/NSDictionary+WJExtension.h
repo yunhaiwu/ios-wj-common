@@ -24,26 +24,26 @@
  *
  *  @param block 遍历block
  */
-- (void) wj_each:(void (^)(id key, id value))block;
+- (void)wjEach:(void (^)(id key, id value))block;
 
 /**
  *  遍历词典所有key
  *
  *  @param block 遍历block
  */
-- (void) wj_eachKey:(void (^)(id key))block;
+- (void)wjEachKey:(void (^)(id key))block;
 
 /**
  *  遍历词典所有值
  *
  *  @param block 遍历block
  */
-- (void) wj_eachValue:(void (^)(id value))block;
+- (void)wjEachValue:(void (^)(id value))block;
 
 /**
  *  转换词典
  */
-- (NSArray *) wj_map:(id (^)(id key, id value))block;
+- (NSArray *)wjMap:(id (^)(id key, id value))block;
 
 /**
  *  是否存在key
@@ -52,6 +52,6 @@
  *
  *  @return 是否存在
  */
-- (BOOL) wj_hasKey:(id)key;
+- (BOOL)wjHasKey:(id)key;
 
 @end

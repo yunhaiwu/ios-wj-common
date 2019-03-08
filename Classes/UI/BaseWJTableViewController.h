@@ -64,11 +64,11 @@
 /**
  *  实例化一个下拉刷新数据视图
  */
--(UIView<IWJPullRefreshView> *) wj_instancePullRefreshHeaderView;
+-(UIView<IWJPullRefreshView> *)wjInstancePullRefreshHeaderView;
 
 /**
  *  实例化一个上拉刷新数据视图
  */
--(UIView<IWJPullRefreshFooterView> *) wj_instancePullRefreshFooterView;
+-(UIView<IWJPullRefreshFooterView> *)wjInstancePullRefreshFooterView;
 
 @end

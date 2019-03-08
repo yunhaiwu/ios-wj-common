@@ -20,6 +20,6 @@
  */
 @interface BaseWJTabBarController : UITabBarController
 
-+ (instancetype) wj_instance;
++ (instancetype)wjInstance;
 
 @end

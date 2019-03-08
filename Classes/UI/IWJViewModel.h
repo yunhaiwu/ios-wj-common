@@ -25,17 +25,17 @@
  */
 @property (nonatomic, assign) BOOL wjActive;
 
-- (void)wj_viewWillAppear;
+- (void)wjViewWillAppear;
 
-- (void)wj_viewDidAppear;
+- (void)wjViewDidAppear;
 
-- (void)wj_viewWillDisappear;
+- (void)wjViewWillDisappear;
 
-- (void)wj_viewDidDisappear;
+- (void)wjViewDidDisappear;
 
 /**
  *  内存警告
  */
-- (void)wj_didReceiveMemoryWarning;
+- (void)wjDidReceiveMemoryWarning;
 
 @end

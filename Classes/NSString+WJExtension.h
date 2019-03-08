@@ -24,7 +24,7 @@ NSString *NSStringWithFormat(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
  
  @return An array containing substrings that have been divided by a whitespace delimiter
  */
-- (NSArray *) wj_split;
+- (NSArray *)wjSplit;
 
 
 /**
@@ -33,7 +33,7 @@ NSString *NSStringWithFormat(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
  @param delimiter The delimiter string
  @return An array containing substrings that have been divided by delimiter
  */
-- (NSArray *) wj_split:(NSString *)delimiter;
+- (NSArray *)wjSplit:(NSString *)delimiter;
 
 
 /**
@@ -41,7 +41,7 @@ NSString *NSStringWithFormat(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
  
  @return A string made by converting a snake_case_string to CamelCaseString
  */
-- (NSString *) wj_camelCase;
+- (NSString*)wjCamelCase;
 
 
 /**
@@ -49,7 +49,7 @@ NSString *NSStringWithFormat(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
  
  @return YES if 'string' is a substring of the receiver, otherwise NO
  */
-- (BOOL) wj_containsString:(NSString *)string;
+- (BOOL)wjContainsString:(NSString *)string;
 
 
 /**
@@ -57,6 +57,6 @@ NSString *NSStringWithFormat(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
  
  @return A string without trailing or leading whitespaces and newlines
  */
-- (NSString *) wj_strip;
+- (NSString*)wjStrip;
 
 @end

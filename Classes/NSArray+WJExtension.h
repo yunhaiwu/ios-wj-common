@@ -20,106 +20,106 @@
 /**
  *  第一个元素
  */
-- (id) wj_first;
+- (id)wjFirst;
 
 /**
  *  最后一个元素
  */
-- (id) wj_last;
+- (id)wjLast;
 
 
 /**
  *  随机一个元素
  */
-- (id) wj_sample;
+- (id)wjSample;
 
 
 /**
  * 根据下标返回元素列表
  */
-- (id) wj_objectForKeyedSubscript:(id <NSCopying>)key;
+- (id)wjObjectForKeyedSubscript:(id <NSCopying>)key;
 
 
 /**
  * 遍历所有元素
  */
-- (void) wj_each:(void (^)(id object))block;
+- (void)wjEach:(void (^)(id object))block;
 
 /**
  * 遍历所有元素
  */
-- (void) wj_eachWithIndex:(void (^)(id object, NSUInteger index))block;
+- (void)wjEachWithIndex:(void (^)(id object, NSUInteger index))block;
 
 /**
  *  是否包含此元素
  */
-- (BOOL) wj_includes:(id)object;
+- (BOOL)wjIncludes:(id)object;
 
 /**
  *  返回指定数量的元素
  */
-- (NSArray *) wj_take:(NSUInteger)numberOfElements;
+- (NSArray*)wjTake:(NSUInteger)numberOfElements;
 
 /**
  *  根据条件返回元素
  */
-- (NSArray *) wj_takeWhile:(BOOL (^)(id object))block;
+- (NSArray *)wjTakeWhile:(BOOL (^)(id object))block;
 
 /**
  *  遍历整个数组
  */
-- (NSArray *) wj_map:(id (^)(id object))block;
+- (NSArray *)wjMap:(id (^)(id object))block;
 
 /**
  *  根据条件返回数据
  */
-- (NSArray *) wj_select:(BOOL (^)(id object))block;
+- (NSArray *)wjSelect:(BOOL (^)(id object))block;
 
 /**
  *  查找元素
  */
-- (id) wj_detect:(BOOL (^)(id object))block;
+- (id)wjDetect:(BOOL (^)(id object))block;
 
 
 /**
  *  查找元素
  */
-- (id) wj_find:(BOOL (^)(id object))block;
+- (id)wjFind:(BOOL (^)(id object))block;
 
 /**
  *  不符合条件数组
  */
-- (NSArray *) wj_reject:(BOOL (^)(id object))block;
+- (NSArray *)wjReject:(BOOL (^)(id object))block;
 
 /**
  *  将数组中所有是数组的元素全部作为一个数组返回
  */
-- (NSArray *) wj_flatten;
+- (NSArray *)wjFlatten;
 
 /**
  *  将数组连接成字符串
  */
-- (NSString *) wj_join;
+- (NSString *)wjJoin;
 
 /**
  *  根据指定字符连接数组
  */
-- (NSString *) wj_join:(NSString *)separator;
+- (NSString *)wjJoin:(NSString *)separator;
 
 /**
  *  排序（compare:）
  */
-- (NSArray *) wj_sort;
+- (NSArray *)wjSort;
 
 /**
  *  根据指定字段排序
  */
-- (NSArray *) wj_sortBy:(NSString*)key;
+- (NSArray *)wjSortBy:(NSString*)key;
 
 /**
  *  翻转字符串
  */
-- (NSArray *) wj_reverse;
+- (NSArray *)wjReverse;
 
 /**
  *  查找在array中的数组元素
@@ -128,12 +128,12 @@
  *
  *  @return 在array数据中的数据集合
  */
-- (NSArray *) wj_intersectionWithArray:(NSArray *)array;
+- (NSArray *)wjIntersectionWithArray:(NSArray *)array;
 
 /**
  *  合并两个数组
  */
-- (NSArray *) wj_unionWithArray:(NSArray *)array;
+- (NSArray *)wjUnionWithArray:(NSArray *)array;
 
 /**
  *  筛选不在array中的数据元素
@@ -142,7 +142,7 @@
  *
  *  @return 不在array中的数据集合
  */
-- (NSArray *) wj_relativeComplement:(NSArray *)array;
+- (NSArray *)wjRelativeComplement:(NSArray *)array;
 
 /**
  *  补集，不同时在当前数组和array中的元素集合
@@ -151,6 +151,6 @@
  *
  *  @return 补集结果
  */
-- (NSArray *) wj_symmetricDifference:(NSArray *)array;
+- (NSArray *)wjSymmetricDifference:(NSArray *)array;
 
 @end

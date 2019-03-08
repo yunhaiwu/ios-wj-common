@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
 
 s.name         = "WJCommon"
-s.version      = "2.0.1"
-s.summary      = "iOS Objective-C,公共组件开发包."
+s.version      = "2.0.2"
+s.summary      = "iOS Objective-C,公共组件开发包"
 
 s.description  = <<-DESC
-    公共组件开发包,几乎所有的WJ组件都需要依赖此开发包
+    公共组件开发包
 DESC
 
 s.homepage     = "https://github.com/yunhaiwu"
@@ -34,31 +34,16 @@ s.subspec 'Utils' do |utils|
     utils.public_header_files = 'Classes/Utils/*.h'
 end
 
-s.subspec 'SwipeBack' do |swipeback|
-    swipeback.source_files = 'Classes/UI/SwipeBack/*'
-    swipeback.public_header_files = 'Classes/UI/SwipeBack/*.h'
-end
-
 s.subspec 'UI' do |ui|
     ui.source_files = 'Classes/UI/*'
     ui.public_header_files = 'Classes/UI/*.h'
 
-    ui.dependency 'WJCommon/SwipeBack'
     ui.dependency 'WJCommon/Core'
     ui.dependency 'WJCommon/Utils'
-    ui.dependency 'Masonry', '1.0.1'
+    ui.dependency 'Masonry', '~> 1.0'
 end
 
-s.subspec 'NetworkService' do |ns|
-    ns.source_files = 'Classes/NetworkService/*'
-    ns.public_header_files = 'Classes/NetworkService/*.h'
-
-    ns.dependency 'WJCommon/Core'
-    ns.dependency 'Reachability', '3.2'
-end
-
-
-s.dependency "WJJSON"
-s.dependency "WJLoggingAPI", '>=2.0'
+s.dependency "YYKit", '~> 1.0'
+s.dependency "WJLoggingAPI", '~> 2.0'
 
 end

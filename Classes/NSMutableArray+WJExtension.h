@@ -20,29 +20,29 @@
 /**
  *  添加一个元素
  */
-- (void) wj_push:(id)object;
+- (void)wjPush:(id)object;
 
 /**
  *  取出最后一个数据并移除
  */
-- (id) wj_pop;
+- (id)wjPop;
 
 /**
  *  取出指定数量的元素并移除
  */
-- (NSArray *) wj_pop:(NSUInteger)numberOfElements;
+- (NSArray *)wjPop:(NSUInteger)numberOfElements;
 
 /**
  *  添加数组
  */
-- (void) wj_concat:(NSArray *)array;
+- (void)wjConcat:(NSArray *)array;
 
 /**
  *  取出第一个元素，并在数据中移除这个元素
  *
  *  @return 移除元素
  */
-- (id) wj_shift;
+- (id)wjShift;
 
 /**
  *  取出前 numberOfElements 个对象并从数组中移除
@@ -51,7 +51,7 @@
  *
  *  @return 移除元素列表
  */
-- (NSArray *) wj_shift:(NSUInteger)numberOfElements;
+- (NSArray *)wjShift:(NSUInteger)numberOfElements;
 
 /**
  *  根据条件移除元素
@@ -60,6 +60,6 @@
  *
  *  @return 移除后的结果
  */
-- (NSArray *) wj_keepIf:(BOOL (^)(id object))block;
+- (NSArray *)wjKeepIf:(BOOL (^)(id object))block;
 
 @end

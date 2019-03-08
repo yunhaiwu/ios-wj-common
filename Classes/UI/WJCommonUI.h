@@ -30,7 +30,7 @@
 #import "UIApplication+WJExtension.h"
 #import "UIDevice+WJExtension.h"
 
-#import "BaseWJViewModel.h"
+#import "AbstractWJViewModel.h"
 
 #import "UIColor+WJExtension.h"
 #import "WJLineView.h"

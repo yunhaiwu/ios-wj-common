@@ -32,7 +32,7 @@
  *
  *  @return 所占区域大小
  */
--(CGSize) wj_sizeWithFont:(UIFont*) font boundingSize:(CGSize) aSize mode:(NSLineBreakMode) mode;
+-(CGSize) wjSizeWithFont:(UIFont*) font boundingSize:(CGSize) aSize mode:(NSLineBreakMode) mode;
 
 /**
  *  计算字符串所占区域大小
@@ -44,6 +44,6 @@
  *
  *  @return 所占区域大小
  */
--(CGSize) wj_sizeWithFont:(UIFont*) font boundingSize:(CGSize) aSize mode:(NSLineBreakMode) mode lineSpacing:(CGFloat) spacing;
+-(CGSize) wjSizeWithFont:(UIFont*) font boundingSize:(CGSize) aSize mode:(NSLineBreakMode) mode lineSpacing:(CGFloat) spacing;
 
 @end

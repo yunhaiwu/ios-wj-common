@@ -17,8 +17,8 @@
 
 @implementation WJLineView
 
--(void)wj_loadSubViews {
-    [super wj_loadSubViews];
+-(void)wjLoadSubViews {
+    [super wjLoadSubViews];
     [self setBackgroundColor:[UIColor clearColor]];
     _lineWidth = 1.0f / [[UIScreen mainScreen] scale];
 }
@@ -81,11 +81,11 @@
     [self setNeedsDisplay];
 }
 
--(NSArray *)wj_observableKeypaths {
+-(NSArray *)wjObservableKeypaths {
     return @[@"lineColor",@"drawPosition",@"lineWidth"];
 }
 
--(void)wj_changeForKeypath:(NSString *)keyPath {
+-(void)wjChangeForKeypath:(NSString *)keyPath {
     [self setNeedsDisplay];
 }
 

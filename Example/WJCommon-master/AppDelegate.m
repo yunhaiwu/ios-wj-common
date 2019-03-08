@@ -13,7 +13,6 @@
 //
 
 #import "AppDelegate.h"
-#import "Gender.h"
 #import "RootViewController.h"
 #import "BaseWJNavigationController.h"
 #import "UIDevice+WJExtension.h"
@@ -57,7 +56,7 @@
 //    [DDLog addLogger:[DDTTYLogger sharedInstance]];
 //    [DDLog addLogger:[DDASLLogger sharedInstance]];
     
-    [self.window setRootViewController:[BaseWJNavigationController wj_instance:[RootViewController wj_instance]]];
+    [self.window setRootViewController:[BaseWJNavigationController wjInstance:[RootViewController wjInstance]]];
     [self.window makeKeyAndVisible];
     return YES;
 }

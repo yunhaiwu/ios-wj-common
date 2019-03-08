@@ -28,12 +28,12 @@
 /**
  *  Encode（默认UTF8编码格式）
  */
-+(NSString*) wj_urlEncode:(NSString*) url;
++(NSString*)wjUrlEncode:(NSString*) url;
 
 /**
  *  Decode（默认UTF8编码格式）
  */
-+(NSString*) wj_urlDecode:(NSString*) url;
++(NSString*)wjUrlDecode:(NSString*) url;
 
 
 @end

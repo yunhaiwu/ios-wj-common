@@ -19,8 +19,8 @@
 
 @implementation TextActionSheetContentView
 
--(void)wj_loadSubViews {
-    [super wj_loadSubViews];
+-(void)wjloadSubViews {
+    [super wjLoadSubViews];
     [self setBackgroundColor:[UIColor whiteColor]];
     if (!_button) {
         self.h = 300;

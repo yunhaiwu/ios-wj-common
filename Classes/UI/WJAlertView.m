@@ -7,7 +7,7 @@
 //
 
 #import "WJAlertView.h"
-#import "BaseWJObject.h"
+#import "AbstractWJObject.h"
 #import "Masonry.h"
 #import "UIApplication+WJExtension.h"
 #import "UIScreen+WJExtension.h"
@@ -15,7 +15,7 @@
 /**
  *  外观参数
  */
-@interface WJAlertContentViewAppearanceParams : BaseWJObject
+@interface WJAlertContentViewAppearanceParams : AbstractWJObject
 /**
  *  内容大小
  */
@@ -137,8 +137,8 @@ static NSHashTable *alertViewCaches;
     }
 }
 
-- (void)wj_loadSubViews {
-    [super wj_loadSubViews];
+- (void)wjLoadSubViews {
+    [super wjLoadSubViews];
     if (!_params) {
         self.params = [[WJAlertContentViewAppearanceParams alloc] init];
         

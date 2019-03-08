@@ -26,7 +26,7 @@
  *
  *  @return 属性值列表
  */
--(NSArray*) wj_observableKeypaths;
+-(NSArray*) wjObservableKeypaths;
 
 /**
  *  KVO options
@@ -35,11 +35,11 @@
  *
  *  @return options
  */
--(NSKeyValueObservingOptions) wj_observerOptionsForKeypath:(NSString*)keyPath;
+-(NSKeyValueObservingOptions) wjObserverOptionsForKeypath:(NSString*)keyPath;
 
 /**
  *  属性发生变化调用方法（子类继承实现）
  */
--(void) wj_changeForKeypath:(NSString*)keyPath change:(NSDictionary *)change;
+-(void) wjChangeForKeypath:(NSString*)keyPath change:(NSDictionary *)change;
 
 @end

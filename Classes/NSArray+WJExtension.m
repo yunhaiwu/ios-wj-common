@@ -19,22 +19,22 @@
 
 @implementation NSArray (WJExtension)
 
-- (id) wj_first {
+- (id)wjFirst {
     return [self firstObject];
 }
 
-- (id) wj_last {
+- (id)wjLast {
     return [self lastObject];
 }
 
-- (id) wj_sample {
+- (id)wjSample {
     if (self.count == 0) return nil;
     
     NSUInteger index = arc4random_uniform((u_int32_t)self.count);
     return self[index];
 }
 
-- (id) wj_objectForKeyedSubscript:(id <NSCopying>)key {
+- (id) wjObjectForKeyedSubscript:(id <NSCopying>)key {
     NSRange range;
     if ([(id)key isKindOfClass:[NSString class]]) {
         NSString *keyString = (NSString *)key;
@@ -54,23 +54,23 @@
 }
 
 
-- (void) wj_each:(void (^)(id object))block {
+- (void)wjEach:(void (^)(id object))block {
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         block(obj);
     }];
 }
 
-- (void) wj_eachWithIndex:(void (^)(id object, NSUInteger  index))block {
+- (void)wjEachWithIndex:(void (^)(id object, NSUInteger  index))block {
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         block(obj, idx);
     }];
 }
 
-- (BOOL) wj_includes:(id)object {
+- (BOOL)wjIncludes:(id)object {
     return [self containsObject:object];
 }
 
-- (NSArray *) wj_take:(NSUInteger)numberOfElements {
+- (NSArray *)wjTake:(NSUInteger)numberOfElements {
     numberOfElements = MIN(numberOfElements, [self count]);
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:numberOfElements];
     
@@ -81,7 +81,7 @@
     return array;
 }
 
-- (NSArray *) wj_takeWhile:(BOOL (^)(id object))block {
+- (NSArray *)wjTakeWhile:(BOOL (^)(id object))block {
     NSMutableArray *array = [NSMutableArray array];
     
     for (id arrayObject in self) {
@@ -94,7 +94,7 @@
     return array;
 }
 
-- (NSArray *) wj_map:(id (^)(id object))block {
+- (NSArray *)wjMap:(id (^)(id object))block {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];
     
     for (id object in self) {
@@ -107,7 +107,7 @@
     return array;
 }
 
-- (NSArray *) wj_select:(BOOL (^)(id object))block {
+- (NSArray *)wjSelect:(BOOL (^)(id object))block {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];
     
     for (id object in self) {
@@ -119,7 +119,7 @@
     return array;
 }
 
-- (id) wj_detect:(BOOL (^)(id object))block {
+- (id)wjDetect:(BOOL (^)(id object))block {
     
     for (id object in self) {
         if (block(object))
@@ -129,11 +129,11 @@
     return nil;
 }
 
-- (id) wj_find:(BOOL (^)(id object))block {
-    return [self wj_detect:block];
+- (id)wjFind:(BOOL (^)(id object))block {
+    return [self wjDetect:block];
 }
 
-- (NSArray *) wj_reject:(BOOL (^)(id object))block {
+- (NSArray *)wjReject:(BOOL (^)(id object))block {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];
     
     for (id object in self) {
@@ -141,66 +141,64 @@
             [array addObject:object];
         }
     }
-    
     return array;
 }
 
-- (NSArray *) wj_flatten {
+- (NSArray *)wjFlatten {
     NSMutableArray *array = [NSMutableArray array];
     
     for (id object in self) {
         if ([object isKindOfClass:NSArray.class]) {
-            [array wj_concat:[object wj_flatten]];
+            [array wjConcat:[object wjFlatten]];
         } else {
             [array addObject:object];
         }
     }
-    
     return array;
 }
 
-- (NSString *) wj_join {
+- (NSString *)wjJoin {
     return [self componentsJoinedByString:@""];
 }
 
-- (NSString *) wj_join:(NSString *)separator {
+- (NSString *)wjJoin:(NSString *)separator {
     return [self componentsJoinedByString:separator];
 }
 
-- (NSArray *) wj_sort {
+- (NSArray *)wjSort {
     return [self sortedArrayUsingSelector:@selector(compare:)];
 }
 
-- (NSArray *) wj_sortBy:(NSString*)key; {
+- (NSArray *)wjSortBy:(NSString*)key; {
     NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:key ascending:YES];
     return [self sortedArrayUsingDescriptors:@[descriptor]];
 }
 
-- (NSArray *) wj_reverse {
+- (NSArray *)wjReverse {
     return self.reverseObjectEnumerator.allObjects;
 }
 
 #pragma mark - Set operations
 
-- (NSArray *) wj_intersectionWithArray:(NSArray *)array {
+- (NSArray *)wjIntersectionWithArray:(NSArray *)array {
     NSPredicate *intersectPredicate = [NSPredicate predicateWithFormat:@"SELF IN %@", array];
     return [self filteredArrayUsingPredicate:intersectPredicate];
 }
 
-- (NSArray *) wj_unionWithArray:(NSArray *)array {
-    NSArray *complement = [self wj_relativeComplement:array];
+- (NSArray *)wjUnionWithArray:(NSArray *)array {
+    NSArray *complement = [self wjRelativeComplement:array];
     return [complement arrayByAddingObjectsFromArray:array];
 }
 
-- (NSArray *) wj_relativeComplement:(NSArray *)array {
+- (NSArray *)wjRelativeComplement:(NSArray *)array {
     NSPredicate *relativeComplementPredicate = [NSPredicate predicateWithFormat:@"NOT SELF IN %@", array];
     return [self filteredArrayUsingPredicate:relativeComplementPredicate];
 }
 
-- (NSArray *) wj_symmetricDifference:(NSArray *)array {
-    NSArray *aSubtractB = [self wj_relativeComplement:array];
-    NSArray *bSubtractA = [array wj_relativeComplement:self];
-    return [aSubtractB wj_unionWithArray:bSubtractA];
+- (NSArray *)wjSymmetricDifference:(NSArray *)array {
+    NSArray *aSubtractB = [self wjRelativeComplement:array];
+    NSArray *bSubtractA = [array wjRelativeComplement:self];
+    return [aSubtractB wjUnionWithArray:bSubtractA];
 }
 
 @end

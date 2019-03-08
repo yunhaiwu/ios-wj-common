@@ -21,41 +21,41 @@
 /**
  *  contentSize.width
  */
-@property(nonatomic, assign) CGFloat wj_contnetWidth;
+@property(nonatomic, assign) CGFloat wjContentWidth;
 
 /**
  *  contentSize.height
  */
-@property(nonatomic, assign) CGFloat wj_contentHeight;
+@property(nonatomic, assign) CGFloat wjContentHeight;
 
 /**
  *  contentOffset.x
  */
-@property(nonatomic, assign) CGFloat wj_contentOffsetX;
+@property(nonatomic, assign) CGFloat wjContentOffsetX;
 
 /**
  *  contentOffset.y
  */
-@property(nonatomic, assign) CGFloat wj_contentOffsetY;
+@property(nonatomic, assign) CGFloat wjContentOffsetY;
 
 /**
  *  contentInset.top
  */
-@property(nonatomic, assign) CGFloat wj_contentInsetTop;
+@property(nonatomic, assign) CGFloat wjContentInsetTop;
 
 /**
  *  contentInset.bottom
  */
-@property(nonatomic, assign) CGFloat wj_contentInsetBottom;
+@property(nonatomic, assign) CGFloat wjContentInsetBottom;
 
 /**
  *  contentInset.left
  */
-@property(nonatomic, assign) CGFloat wj_contentInsetLeft;
+@property(nonatomic, assign) CGFloat wjContentInsetLeft;
 
 /**
  *  contentInset.right
  */
-@property(nonatomic, assign) CGFloat wj_contentInsetRight;
+@property(nonatomic, assign) CGFloat wjContentInsetRight;
 
 @end

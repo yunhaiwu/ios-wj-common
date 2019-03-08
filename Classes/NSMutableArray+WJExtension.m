@@ -18,53 +18,50 @@
 
 @implementation NSMutableArray (WJExtension)
 
-- (void) wj_push:(id)object {
+- (void)wjPush:(id)object {
     [self addObject:object];
 }
 
-- (id) wj_pop {
+- (id)wjPop {
     id object = [self lastObject];
     [self removeLastObject];
     
     return object;
 }
 
-- (NSArray *) wj_pop:(NSUInteger)numberOfElements {
+- (NSArray *)wjPop:(NSUInteger)numberOfElements {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:numberOfElements];
     
     for (NSUInteger i = 0; i < numberOfElements; i++)
-        [array insertObject:[self wj_pop] atIndex:0];
+        [array insertObject:[self wjPop] atIndex:0];
     
     return array;
 }
 
-- (void) wj_concat:(NSArray *)array {
+- (void)wjConcat:(NSArray *)array {
     [self addObjectsFromArray:array];
 }
 
-- (id) wj_shift {
-    NSArray *result = [self wj_shift:1];
-    return [result wj_first];
+- (id)wjShift {
+    NSArray *result = [self wjShift:1];
+    return [result wjFirst];
 }
 
-- (NSArray *) wj_shift:(NSUInteger)numberOfElements {
+- (NSArray *)wjShift:(NSUInteger)numberOfElements {
     NSUInteger shiftLength = MIN(numberOfElements, [self count]);
-    
     NSRange range = NSMakeRange(0, shiftLength);
     NSArray *result = [self subarrayWithRange:range];
     [self removeObjectsInRange:range];
-    
     return result;
 }
 
-- (NSArray *) wj_keepIf:(BOOL (^)(id object))block {
+- (NSArray *)wjKeepIf:(BOOL (^)(id object))block {
     for (NSUInteger i = 0; i < self.count; i++) {
         id object = self[i];
         if (block(object) == NO) {
             [self removeObject:object];
         }
     }
-    
     return self;
 }
 

@@ -16,7 +16,7 @@
 #import "WJSingleton.h"
 #import "AbstractWJBusinessObject.h"
 #import "BaseWJEnum.h"
-#import "BaseWJObject.h"
+#import "AbstractWJObject.h"
 #import "NSDate+WJExtension.h"
 #import "NSData+WJArchive.h"
 #import "NSString+WJCalculateSize.h"

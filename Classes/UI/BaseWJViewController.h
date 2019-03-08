@@ -63,44 +63,44 @@ extern NSString * const WJViewControllerTitleKey;
 /**
  *  当前界面是否存在导航栏
  */
--(BOOL) wj_existNavigationBar;
+-(BOOL) wjExistNavigationBar;
 
 /**
- *  视图控制器初始方法(init初始化完成调用),子类重写后需要[super wj_vcInit]
+ *  视图控制器初始方法(init初始化完成调用),子类重写后需要[super wjVcInit]
  */
--(void) wj_vcInit;
+-(void) wjVcInit;
 
 /**
  *  加载数据操作方法
  */
--(void) wj_execLoadDataAction;
+-(void) wjExecLoadDataAction;
 
 /**
  *  实例化一个加载视图
  *
  *  @return 加载视图
  */
--(UIView<IWJLoadingView>*) wj_instanceLoadingView;
+-(UIView<IWJLoadingView>*)wjInstanceLoadingView;
 
 /**
  *  需要观察的keypath 列表(子类重写实现)
  */
--(NSArray*) wj_observableKeypaths;
+-(NSArray*)wjObservableKeypaths;
 
 /**
  *  指定keypath有修改(子类重写实现)
  */
--(void) wj_changeForKeypath:(NSString*)keyPath change:(NSDictionary *)change;
+-(void)wjChangeForKeypath:(NSString*)keyPath change:(NSDictionary *)change;
 
 /**
  *  当前视图控制器ViewModel
  */
--(NSArray*) wj_viewModels;
+-(NSArray*) wjViewModels;
 
 /**
  *  实例化一个视图控制器方法
  */
-+(instancetype) wj_instance;
++(instancetype)wjInstance;
 
 
 @end

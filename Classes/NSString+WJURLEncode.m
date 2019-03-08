@@ -17,11 +17,11 @@
 
 @implementation NSString (WJURLEncode)
 
-+(NSString *)wj_urlEncode:(NSString *)s {
++(NSString *)wjUrlEncode:(NSString *)s {
     return [s stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 }
 
-+(NSString *)wj_urlDecode:(NSString *)s {
++(NSString *)wjUrlDecode:(NSString *)s {
     return [s stringByRemovingPercentEncoding];
 }
 

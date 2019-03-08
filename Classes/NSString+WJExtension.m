@@ -38,30 +38,30 @@ NSString *NSStringWithFormat(NSString *formatString, ...) {
 
 @implementation NSString (WJExtension)
 
-- (NSArray *) wj_split {
+- (NSArray*)wjSplit {
     NSArray *result = [self componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    return [result wj_select:^BOOL(NSString *string) {
+    return [result wjSelect:^BOOL(NSString *string) {
         return string.length > 0;
     }];
 }
 
-- (NSArray *) wj_split:(NSString *)delimiter {
+- (NSArray*)wjSplit:(NSString *)delimiter {
     return [self componentsSeparatedByString:delimiter];
 }
 
-- (NSString *) wj_camelCase {
+- (NSString*)wjCamelCase {
     NSString *spaced = [self stringByReplacingOccurrencesOfString:UNDERSCORE withString:SPACE];
     NSString *capitalized = [spaced capitalizedString];
     
     return [capitalized stringByReplacingOccurrencesOfString:SPACE withString:EMPTY_STRING];
 }
 
-- (BOOL) wj_containsString:(NSString *) string {
+- (BOOL)wjContainsString:(NSString *) string {
     NSRange range = [self rangeOfString:string options:NSCaseInsensitiveSearch];
     return range.location != NSNotFound;
 }
 
-- (NSString *) wj_strip {
+- (NSString*)wjStrip {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 

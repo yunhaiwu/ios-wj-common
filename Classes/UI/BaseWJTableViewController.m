@@ -58,7 +58,7 @@
 }
 
 #pragma mark Overriding superClass
--(void)wj_execLoadDataAction {
+-(void)wjExecLoadDataAction {
     
     [self wj_execRefreshNewDataAction];
 }
@@ -107,7 +107,7 @@
     if (_enabledHeaderRefresh) {
         WJLogDebug(@"启用 下拉刷新数据");
         if (!_wjPullRefreshHeaderView) {
-            UIView<IWJPullRefreshView> *v = [self wj_instancePullRefreshHeaderView];
+            UIView<IWJPullRefreshView> *v = [self wjInstancePullRefreshHeaderView];
             [v setDelegate:self];
             [_tableView addSubview:v];
             _wjPullRefreshHeaderView = v;
@@ -126,7 +126,7 @@
     if (_enabledFooterRefresh) {
         WJLogDebug(@"启用 加载更多数据");
         if (!_wjPullRefreshFooterView) {
-            UIView<IWJPullRefreshFooterView> *v = [self wj_instancePullRefreshFooterView];
+            UIView<IWJPullRefreshFooterView> *v = [self wjInstancePullRefreshFooterView];
             [v setDelegate:self];
             [_tableView addSubview:v];
             _wjPullRefreshFooterView = v;
@@ -142,11 +142,11 @@
 }
 
 #pragma mark KVO
--(NSArray *)wj_observableKeypaths {
+-(NSArray *)wjObservableKeypaths {
     return @[@"enabledHeaderRefresh",@"enabledFooterRefresh"];
 }
 
--(void)wj_changeForKeypath:(NSString *)keypath {
+-(void)wjChangeForKeypath:(NSString *)keypath {
     if (WJ_STRING_EQUAL(keypath, @"enabledHeaderRefresh")) {
         [self performSelectorOnMainThread:@selector(wj_changeEnabledHeaderRefreshUI) withObject:nil waitUntilDone:NO];
     } else if (WJ_STRING_EQUAL(keypath, @"enabledFooterRefresh")) {

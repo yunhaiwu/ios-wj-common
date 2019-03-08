@@ -17,7 +17,7 @@
 
 @implementation BaseWJTabBarController
 
-+ (instancetype)wj_instance {
++ (instancetype)wjInstance {
     return [[self alloc] init];;
 }
 

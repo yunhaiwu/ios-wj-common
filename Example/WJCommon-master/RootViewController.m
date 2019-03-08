@@ -14,8 +14,8 @@
 
 @implementation RootViewController
 
--(void)wj_vcInit {
-    [super wj_vcInit];
+-(void)wjvcInit {
+    [super wjVcInit];
     self.dataSources = @[
   @{@"title":@"CollectionView Demo",@"target":@"CollectionViewDemo"},
   @{@"title":@"WJActiveSheet Demo",@"target":@"WJActiveSheetDemo"},
@@ -32,7 +32,7 @@
     NSDictionary *d = _dataSources[indexPath.row];
     NSString *target = d[@"target"];
     Class targetClazz = NSClassFromString(target);
-    BaseWJViewController *vc = [targetClazz wj_instance];
+    BaseWJViewController *vc = [targetClazz wjInstance];
     [vc setWjNavTitle:d[@"title"]];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -66,7 +66,7 @@
     return UIRectEdgeNone;
 }
 
--(BOOL)wj_existNavigationBar {
+-(BOOL)wjexistNavigationBar {
     return YES;
 }
 

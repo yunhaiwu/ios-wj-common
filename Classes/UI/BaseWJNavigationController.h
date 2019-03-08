@@ -17,6 +17,6 @@
 
 
 @interface BaseWJNavigationController : UINavigationController
-+(instancetype) wj_instance;
-+(instancetype) wj_instance:(UIViewController*) rootViewController;
++(instancetype)wjInstance;
++(instancetype)wjInstance:(UIViewController*) rootViewController;
 @end

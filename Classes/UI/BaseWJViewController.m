@@ -25,37 +25,37 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
 
 @implementation BaseWJViewController
 
--(BOOL)wj_existNavigationBar {
+-(BOOL)wjExistNavigationBar {
     return YES;
 }
 
 #pragma mark custom
--(NSArray*)wj_viewModels {
+-(NSArray*)wjViewModels {
     return nil;
 }
 
 #pragma mark IWJLoadingViewDelegate
 -(void)loadingRefresh:(UIView<IWJLoadingView> *)loadingView {
     [loadingView setState:WJLoadingStateLoading];
-    [self performSelectorOnMainThread:@selector(wj_execLoadDataAction) withObject:nil waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(wjExecLoadDataAction) withObject:nil waitUntilDone:NO];
 }
 #pragma mark ViewController Overriding
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    NSArray *viewModels = [self wj_viewModels];
+    NSArray *viewModels = [self wjViewModels];
     for (id<IWJViewModel> vm in viewModels) {
         [vm setWjActive:NO];
-        [vm wj_viewWillDisappear];
+        [vm wjViewWillDisappear];
     }
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     
-    NSArray *viewModels = [self wj_viewModels];
+    NSArray *viewModels = [self wjViewModels];
     for (id<IWJViewModel> vm in viewModels) {
-        [vm wj_viewDidDisappear];
+        [vm wjViewDidDisappear];
     }
 }
 
@@ -67,10 +67,10 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
     } else {
         [self setNeedsStatusBarAppearanceUpdate];
     }
-    NSArray *viewModels = [self wj_viewModels];
+    NSArray *viewModels = [self wjViewModels];
     for (id<IWJViewModel> vm in viewModels) {
         [vm setWjActive:YES];
-        [vm wj_viewWillAppear];
+        [vm wjViewWillAppear];
     }
     if (_wjLoadingView) [self.view bringSubviewToFront:_wjLoadingView];
 }
@@ -78,9 +78,9 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    NSArray *viewModels = [self wj_viewModels];
+    NSArray *viewModels = [self wjViewModels];
     for (id<IWJViewModel> vm in viewModels) {
-        [vm wj_viewDidAppear];
+        [vm wjViewDidAppear];
     }
 }
 
@@ -98,11 +98,11 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
 #endif
     }
     
-    [self wj_refreshUIElement];
+    [self wjRefreshUIElement];
     
     //添加加载视图
     if (!_wjLoadingView) {
-        UIView<IWJLoadingView> *v = [self wj_instanceLoadingView];
+        UIView<IWJLoadingView> *v = [self wjInstanceLoadingView];
         if (v) {
             [v setDelegate:self];
             [v setOffsetY:-20.0f];
@@ -128,7 +128,7 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
 }
 
 
--(void) wj_popExec:(id) sender {
+-(void) wjPopExec:(id) sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -136,9 +136,9 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
     return UIRectEdgeNone;
 }
 
--(void) wj_refreshUIElement {
+-(void) wjRefreshUIElement {
     CGFloat statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
-    if ([self wj_existNavigationBar]) {
+    if ([self wjExistNavigationBar]) {
         __weak typeof(self) selfObject = self;
         if (!_wjNavigationBar) {
             BaseWJNavigationBar *bar = [[BaseWJNavigationBar alloc] init];
@@ -150,13 +150,13 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
             if ([self.navigationController.viewControllers count] > 1) {
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_11_0
                 UIImage *icon = [UIImage imageNamed:@"wj-nav-icon-back"];
-                UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:icon style:UIBarButtonItemStylePlain target:self action:@selector(wj_popExec:)];
+                UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:icon style:UIBarButtonItemStylePlain target:self action:@selector(wjPopExec:)];
                 [self.wjNavigationItem setLeftBarButtonItem:backItem];
 #else
                 UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:NULL];
                 negativeSpacer.width = -2.0f;
                 UIImage *icon = [UIImage imageNamed:@"wj-nav-icon-back"];
-                UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:icon style:UIBarButtonItemStylePlain target:self action:@selector(wj_popExec:)];
+                UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:icon style:UIBarButtonItemStylePlain target:self action:@selector(wjPopExec:)];
                 [self.wjNavigationItem setLeftBarButtonItems:@[negativeSpacer,backItem]];
 #endif
             }
@@ -198,7 +198,7 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
 
 //-(void)viewDidLayoutSubviews {
 //    [super viewDidLayoutSubviews];
-//    if ([self wj_existNavigationBar]) {
+//    if ([self wjExistNavigationBar]) {
 //        [_wjNavigationBar setFrame:CGRectMake(0, 0, self.view.bounds.size.width, 64.0f)];
 //        if ([self edgesForExtendedLayout] & UIRectEdgeTop) {
 //            [_wjView setFrame:self.view.bounds];
@@ -209,7 +209,7 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
 //}
 
 -(void)dealloc {
-    [self wj_unregisterFromKVO];
+    [self wjUnregisterFromKVO];
 }
 
 -(void)didReceiveMemoryWarning {
@@ -222,9 +222,9 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
     }
 #endif
     
-    NSArray *viewModels = [self wj_viewModels];
+    NSArray *viewModels = [self wjViewModels];
     for (id<IWJViewModel> vm in viewModels) {
-        [vm wj_didReceiveMemoryWarning];
+        [vm wjDidReceiveMemoryWarning];
     }
     
 }
@@ -233,7 +233,7 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
     self = [super init];
     if (self) {
         if (!_wjInitTag) {
-            [self wj_vcInit];
+            [self wjVcInit];
             _wjInitTag = YES;
         }
     }
@@ -244,7 +244,7 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
     self = [super initWithCoder:aDecoder];
     if (self) {
         if (!_wjInitTag) {
-            [self wj_vcInit];
+            [self wjVcInit];
             _wjInitTag = YES;
         }
     }
@@ -255,23 +255,23 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         if (!_wjInitTag) {
-            [self wj_vcInit];
+            [self wjVcInit];
             _wjInitTag = YES;
         }
     }
     return self;
 }
 
--(void)wj_vcInit {
-    [self wj_registerForKVO];
+-(void)wjVcInit {
+    [self wjRegisterForKVO];
 }
 
 
 #pragma mark exec action method
--(void) wj_execLoadDataAction {}
+-(void) wjExecLoadDataAction {}
 
 #pragma mark instance
-+(instancetype) wj_instance {
++(instancetype)wjInstance {
     BaseWJViewController *viewController = nil;
     @try {
         NSString *className = NSStringFromClass(self);
@@ -292,7 +292,7 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
 }
 
 #pragma mark Instance LoadingView
--(UIView<IWJLoadingView> *)wj_instanceLoadingView {
+-(UIView<IWJLoadingView> *)wjInstanceLoadingView {
     return nil;
 }
 
@@ -301,27 +301,27 @@ NSString * const WJViewControllerTitleKey = @"WJViewControllerTitleKey";
 -(NSKeyValueObservingOptions) observerOptionsForKeypath:(NSString*) keyPath {
     return NSKeyValueObservingOptionNew;
 }
--(void) wj_registerForKVO {
-    NSArray *keypaths = [self wj_observableKeypaths];
+-(void) wjRegisterForKVO {
+    NSArray *keypaths = [self wjObservableKeypaths];
     for (NSString *keypath in keypaths) {
         [self addObserver:self forKeyPath:keypath options:[self observerOptionsForKeypath:keypath] context:NULL];
     }
 }
--(void) wj_unregisterFromKVO {
-    NSArray *keypaths = [self wj_observableKeypaths];
+-(void) wjUnregisterFromKVO {
+    NSArray *keypaths = [self wjObservableKeypaths];
     for (NSString *keypath in keypaths) {
         [self removeObserver:self forKeyPath:keypath];
     }
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    [self wj_changeForKeypath:keyPath change:change];
+    [self wjChangeForKeypath:keyPath change:change];
 }
 
--(NSArray*) wj_observableKeypaths {
+-(NSArray*)wjObservableKeypaths {
     return nil;
 }
 
--(void)wj_changeForKeypath:(NSString *)keyPath change:(NSDictionary *)change {}
+-(void)wjChangeForKeypath:(NSString *)keyPath change:(NSDictionary *)change {}
 
 
 

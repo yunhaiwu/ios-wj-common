@@ -42,7 +42,7 @@
 }
 
 -(void) btnExec:(id)sender {
-    WJAlertView *alertView = [[WJAlertView alloc] initWithContentView:[TestAlertContentView wj_instance]];
+    WJAlertView *alertView = [[WJAlertView alloc] initWithContentView:[TestAlertContentView wjInstance]];
     [alertView showInView:self.view animated:YES];
 }
 

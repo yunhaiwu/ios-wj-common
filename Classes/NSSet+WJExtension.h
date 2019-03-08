@@ -23,31 +23,31 @@
 /**
  *  第一个元素
  */
-@property(readonly) id wj_first;
+@property(readonly) id wjFirst;
 
 /**
  *  最后一个元素
  */
-@property(readonly) id wj_last;
+@property(readonly) id wjLast;
 
 /**
  * 随机一个元素
  */
-@property(readonly) id wj_sample;
+@property(readonly) id wjSample;
 
 /**
  *  遍历集合元素
  *
  *  @param block 遍历block
  */
-- (void) wj_each:(void (^)(id object))block;
+- (void)wjEach:(void (^)(id object))block;
 
 /**
  *  遍历集合元素
  *
  *  @param block 遍历block
  */
-- (void) wj_eachWithIndex:(void (^)(id object, NSUInteger index))block;
+- (void)wjEachWithIndex:(void (^)(id object, NSUInteger index))block;
 
 /**
  *  筛选集合元素
@@ -56,24 +56,24 @@
  *
  *  @return 筛选结果
  */
-- (NSArray *) wj_select:(BOOL (^)(id object))block;
+- (NSArray*)wjSelect:(BOOL (^)(id object))block;
 
 /**
  *  与qw_select 相反
  */
-- (NSArray *) wj_reject:(BOOL (^)(id object))block;
+- (NSArray*)wjReject:(BOOL (^)(id object))block;
 
 /**
  *  将集合元素转成想要对象
  */
-- (NSArray *) wj_map:(id (^)(id object))block;
+- (NSArray*)wjMap:(id (^)(id object))block;
 
 /**
  *  排序集合
  *
  *  @return 排序结果
  */
-- (NSArray *) wj_sort;
+- (NSArray*)wjSort;
 
 
 @end

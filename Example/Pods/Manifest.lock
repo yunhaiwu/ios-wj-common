@@ -2,32 +2,44 @@ PODS:
   - KVOController (1.2.0)
   - Masonry (1.0.0)
   - Reachability (3.2)
-  - WJJSON (1.0.1)
+  - WJAppContext (2.0.2):
+    - WJConfig
+    - WJLoggingAPI
+  - WJConfig (2.0):
+    - WJLoggingAPI (>= 2.0)
   - WJLoggingAPI (2.0)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - KVOController
   - Masonry (= 1.0.0)
   - Reachability (= 3.2)
-  - WJJSON
+  - WJAppContext
   - WJLoggingAPI (>= 2.0)
+  - YYKit (~> 1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - KVOController
     - Masonry
     - Reachability
+    - YYKit
   https://github.com/yunhaiwu/ios-wj-framework-cocoapods-specs.git:
-    - WJJSON
+    - WJAppContext
+    - WJConfig
     - WJLoggingAPI
 
 SPEC CHECKSUMS:
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
   Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  WJJSON: e97aac774540ada0d8e76de7ffc8c724e4741d8e
+  WJAppContext: 63e3fdc4da09c14d20054de2f942dda4a0683d22
+  WJConfig: deda632fdec1562c21e62be1acace6346c0cceca
   WJLoggingAPI: 183581a351d51f93ec9900a3cc5f2df15b907de3
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: a4ad045d485eca94fdad8397c83631e77a2c805c
+PODFILE CHECKSUM: 7d718f243306020d3bbf2062254cd6bbb19af37e
 
 COCOAPODS: 1.5.3

@@ -32,8 +32,8 @@
     }
 }
 
--(void)wj_loadSubViews {
-    [super wj_loadSubViews];
+-(void)wjLoadSubViews {
+    [super wjLoadSubViews];
     [self setBackgroundColor:[UIColor clearColor]];
 }
 
@@ -55,11 +55,11 @@
     }
 }
 
--(NSArray *)wj_observableKeypaths {
+-(NSArray *)wjObservableKeypaths {
     return @[@"axis"];
 }
 
--(void)wj_changeForKeypath:(NSString *)keyPath {
+-(void)wjChangeForKeypath:(NSString *)keyPath {
     [self setNeedsLayout];
 }
 

@@ -23,7 +23,7 @@
 /**
  * 加载子视图
  */
--(void) wj_loadSubViews;
+-(void)wjLoadSubViews;
 
 /**
  *  计算行高
@@ -51,7 +51,7 @@
  *
  *  @return 属性值列表
  */
--(NSArray*) wj_observableKeypaths;//子类继承
+-(NSArray*)wjObservableKeypaths;//子类继承
 
 /**
  *  KVO options
@@ -60,18 +60,18 @@
  *
  *  @return options
  */
--(NSKeyValueObservingOptions) wj_observerOptionsForKeypath:(NSString*) keyPath;
+-(NSKeyValueObservingOptions)wjObserverOptionsForKeypath:(NSString*) keyPath;
 
 /**
  *  属性发生变化调用方法（子类继承实现）
  */
--(void) wj_changeForKeypath:(NSString*)keyPath change:(NSDictionary *)change;
+-(void)wjChangeForKeypath:(NSString*)keyPath change:(NSDictionary *)change;
 
 /**
  *  创建一个实例
  *
  *  @return 实例对象
  */
-+(instancetype) wj_instance;
++(instancetype)wjInstance;
 
 @end

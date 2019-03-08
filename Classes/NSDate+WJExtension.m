@@ -16,96 +16,96 @@
 #import "NSDate+WJExtension.h"
 
 @implementation NSDate (WJExtension)
-- (NSInteger)wj_year
+- (NSInteger)year
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *component = [calendar components:NSCalendarUnitYear fromDate:self];
     return component.year;
 }
 
-- (NSInteger)wj_month
+- (NSInteger)month
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *component = [calendar components:NSCalendarUnitMonth
                                               fromDate:self];
     return component.month;
 }
 
-- (NSInteger)wj_day
+- (NSInteger)day
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *component = [calendar components:NSCalendarUnitDay
                                               fromDate:self];
     return component.day;
 }
 
-- (NSInteger)wj_weekday
+- (NSInteger)weekday
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *component = [calendar components:NSCalendarUnitWeekday fromDate:self];
     return component.weekday;
 }
 
-- (NSInteger)wj_weekOfYear
+- (NSInteger)weekOfYear
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *component = [calendar components:NSCalendarUnitWeekOfYear fromDate:self];
     return component.weekOfYear;
 }
 
-- (NSInteger)wj_hour
+- (NSInteger)hour
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *component = [calendar components:NSCalendarUnitHour
                                               fromDate:self];
     return component.hour;
 }
 
-- (NSInteger)wj_minute
+- (NSInteger)minute
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *component = [calendar components:NSCalendarUnitMinute
                                               fromDate:self];
     return component.minute;
 }
 
-- (NSInteger)wj_second
+- (NSInteger)second
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *component = [calendar components:NSCalendarUnitSecond
                                               fromDate:self];
     return component.second;
 }
 
-- (NSDate *)wj_dateByIgnoringTimeComponents
+- (NSDate *)dateByIgnoringTimeComponents
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self];
     return [calendar dateFromComponents:components];
 }
 
-- (NSDate *)wj_firstDayOfMonth
+- (NSDate *)firstDayOfMonth
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth| NSCalendarUnitDay fromDate:self];
     components.day = 1;
     return [calendar dateFromComponents:components];
 }
 
-- (NSDate *)wj_lastDayOfMonth
+- (NSDate *)lastDayOfMonth
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self];
     components.month++;
     components.day = 0;
     return [calendar dateFromComponents:components];
 }
 
-- (NSDate *)wj_firstDayOfWeek
+- (NSDate *)firstDayOfWeek
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *weekdayComponents = [calendar components:NSCalendarUnitWeekday fromDate:self];
-    NSDateComponents *componentsToSubtract = [NSDateComponents wj_sharedDateComponents];
+    NSDateComponents *componentsToSubtract = [NSDateComponents sharedDateComponents];
     componentsToSubtract.day = - (weekdayComponents.weekday - calendar.firstWeekday);
     NSDate *beginningOfWeek = [calendar dateByAddingComponents:componentsToSubtract toDate:self options:0];
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:beginningOfWeek];
@@ -114,11 +114,11 @@
     return beginningOfWeek;
 }
 
-- (NSDate *)wj_middleOfWeek
+- (NSDate *)middleOfWeek
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *weekdayComponents = [calendar components:NSCalendarUnitWeekday fromDate:self];
-    NSDateComponents *componentsToSubtract = [NSDateComponents wj_sharedDateComponents];
+    NSDateComponents *componentsToSubtract = [NSDateComponents sharedDateComponents];
     componentsToSubtract.day = - (weekdayComponents.weekday - calendar.firstWeekday) + 3;
     NSDate *middleOfWeek = [calendar dateByAddingComponents:componentsToSubtract toDate:self options:0];
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:middleOfWeek];
@@ -127,42 +127,42 @@
     return middleOfWeek;
 }
 
-- (NSDate *)wj_tomorrow
+- (NSDate *)tomorrow
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self];
     components.day++;
     return [calendar dateFromComponents:components];
 }
 
-- (NSDate *)wj_yesterday
+- (NSDate *)yesterday
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self];
     components.day--;
     return [calendar dateFromComponents:components];
 }
 
-- (NSInteger)wj_numberOfDaysInMonth
+- (NSInteger)numberOfDaysInMonth
 {
-    NSCalendar *c = [NSCalendar wj_sharedCalendar];
+    NSCalendar *c = [NSCalendar sharedCalendar];
     NSRange days = [c rangeOfUnit:NSCalendarUnitDay
                            inUnit:NSCalendarUnitMonth
                           forDate:self];
     return days.length;
 }
 
-+ (instancetype)wj_dateFromString:(NSString *)string format:(NSString *)format
++ (instancetype)dateFromString:(NSString *)string format:(NSString *)format
 {
-    NSDateFormatter *formatter = [NSDateFormatter wj_sharedDateFormatter];
+    NSDateFormatter *formatter = [NSDateFormatter sharedDateFormatter];
     formatter.dateFormat = format;
     return [formatter dateFromString:string];
 }
 
-+ (instancetype)wj_dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
++ (instancetype)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
-    NSDateComponents *components = [NSDateComponents wj_sharedDateComponents];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
+    NSDateComponents *components = [NSDateComponents sharedDateComponents];
     components.year = year;
     components.month = month;
     components.day = day;
@@ -173,69 +173,69 @@
     return date;
 }
 
-- (NSDate *)wj_dateByAddingYears:(NSInteger)years
+- (NSDate *)dateByAddingYears:(NSInteger)years
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
-    NSDateComponents *components = [NSDateComponents wj_sharedDateComponents];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
+    NSDateComponents *components = [NSDateComponents sharedDateComponents];
     components.year = years;
     NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];
     components.year = NSIntegerMax;
     return date;
 }
 
-- (NSDate *)wj_dateBySubtractingYears:(NSInteger)years
+- (NSDate *)dateBySubtractingYears:(NSInteger)years
 {
-    return [self wj_dateByAddingYears:-years];
+    return [self dateByAddingYears:-years];
 }
 
-- (NSDate *)wj_dateByAddingMonths:(NSInteger)months
+- (NSDate *)dateByAddingMonths:(NSInteger)months
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
-    NSDateComponents *components = [NSDateComponents wj_sharedDateComponents];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
+    NSDateComponents *components = [NSDateComponents sharedDateComponents];
     components.month = months;
     NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];
     components.month = NSIntegerMax;
     return date;
 }
 
-- (NSDate *)wj_dateBySubtractingMonths:(NSInteger)months
+- (NSDate *)dateBySubtractingMonths:(NSInteger)months
 {
-    return [self wj_dateByAddingMonths:-months];
+    return [self dateByAddingMonths:-months];
 }
 
-- (NSDate *)wj_dateByAddingWeeks:(NSInteger)weeks
+- (NSDate *)dateByAddingWeeks:(NSInteger)weeks
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
-    NSDateComponents *components = [NSDateComponents wj_sharedDateComponents];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
+    NSDateComponents *components = [NSDateComponents sharedDateComponents];
     components.weekOfYear = weeks;
     NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];
     components.weekOfYear = NSIntegerMax;
     return date;
 }
 
--(NSDate *)wj_dateBySubtractingWeeks:(NSInteger)weeks
+-(NSDate *)dateBySubtractingWeeks:(NSInteger)weeks
 {
-    return [self wj_dateByAddingWeeks:-weeks];
+    return [self dateByAddingWeeks:-weeks];
 }
 
-- (NSDate *)wj_dateByAddingDays:(NSInteger)days
+- (NSDate *)dateByAddingDays:(NSInteger)days
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
-    NSDateComponents *components = [NSDateComponents wj_sharedDateComponents];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
+    NSDateComponents *components = [NSDateComponents sharedDateComponents];
     components.day = days;
     NSDate *date = [calendar dateByAddingComponents:components toDate:self options:0];
     components.day = NSIntegerMax;
     return date;
 }
 
-- (NSDate *)wj_dateBySubtractingDays:(NSInteger)days
+- (NSDate *)dateBySubtractingDays:(NSInteger)days
 {
-    return [self wj_dateByAddingDays:-days];
+    return [self dateByAddingDays:-days];
 }
 
-- (NSInteger)wj_yearsFrom:(NSDate *)date
+- (NSInteger)yearsFrom:(NSDate *)date
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *components = [calendar components:NSCalendarUnitYear
                                                fromDate:date
                                                  toDate:self
@@ -243,9 +243,9 @@
     return components.year;
 }
 
-- (NSInteger)wj_monthsFrom:(NSDate *)date
+- (NSInteger)monthsFrom:(NSDate *)date
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *components = [calendar components:NSCalendarUnitMonth
                                                fromDate:date
                                                  toDate:self
@@ -253,9 +253,9 @@
     return components.month;
 }
 
-- (NSInteger)wj_weeksFrom:(NSDate *)date
+- (NSInteger)weeksFrom:(NSDate *)date
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *components = [calendar components:NSCalendarUnitWeekOfYear
                                                fromDate:date
                                                  toDate:self
@@ -263,9 +263,9 @@
     return components.weekOfYear;
 }
 
-- (NSInteger)wj_daysFrom:(NSDate *)date
+- (NSInteger)daysFrom:(NSDate *)date
 {
-    NSCalendar *calendar = [NSCalendar wj_sharedCalendar];
+    NSCalendar *calendar = [NSCalendar sharedCalendar];
     NSDateComponents *components = [calendar components:NSCalendarUnitDay
                                                fromDate:date
                                                  toDate:self
@@ -273,43 +273,43 @@
     return components.day;
 }
 
-- (NSString *)wj_stringWithFormat:(NSString *)format
+- (NSString *)stringWithFormat:(NSString *)format
 {
-    NSDateFormatter *formatter = [NSDateFormatter wj_sharedDateFormatter];
+    NSDateFormatter *formatter = [NSDateFormatter sharedDateFormatter];
     formatter.dateFormat = format;
     return [formatter stringFromDate:self];
 }
 
-- (NSString *)wj_string
+- (NSString *)string
 {
-    return [self wj_stringWithFormat:@"yyyyMMdd"];
+    return [self stringWithFormat:@"yyyyMMdd"];
 }
 
 
-- (BOOL)wj_isEqualToDateForMonth:(NSDate *)date
+- (BOOL)isEqualToDateForMonth:(NSDate *)date
 {
-    return self.wj_year == date.wj_year && self.wj_month == date.wj_month;
+    return self.year == date.year && self.month == date.month;
 }
 
-- (BOOL)wj_isEqualToDateForWeek:(NSDate *)date
+- (BOOL)isEqualToDateForWeek:(NSDate *)date
 {
-    return self.wj_year == date.wj_year && self.wj_weekOfYear == date.wj_weekOfYear;
+    return self.year == date.year && self.weekOfYear == date.weekOfYear;
 }
 
-- (BOOL)wj_isEqualToDateForDay:(NSDate *)date
+- (BOOL)isEqualToDateForDay:(NSDate *)date
 {
-    return self.wj_year == date.wj_year && self.wj_month == date.wj_month && self.wj_day == date.wj_day;
+    return self.year == date.year && self.month == date.month && self.day == date.day;
 }
 @end
 
 
 @implementation NSCalendar (WJExtension)
 
-+ (instancetype)wj_sharedCalendar
++ (instancetype)sharedCalendar
 {
     static id instance;
-    static dispatch_once_t wj_sharedCalendar_onceToken;
-    dispatch_once(&wj_sharedCalendar_onceToken, ^{
+    static dispatch_once_t sharedCalendar_onceToken;
+    dispatch_once(&sharedCalendar_onceToken, ^{
         instance = [NSCalendar currentCalendar];
     });
     return instance;
@@ -320,11 +320,11 @@
 
 @implementation NSDateFormatter (WJExtension)
 
-+ (instancetype)wj_sharedDateFormatter
++ (instancetype)sharedDateFormatter
 {
     static id instance;
-    static dispatch_once_t wj_sharedDateFormatter_onceToken;
-    dispatch_once(&wj_sharedDateFormatter_onceToken, ^{
+    static dispatch_once_t sharedDateFormatter_onceToken;
+    dispatch_once(&sharedDateFormatter_onceToken, ^{
         instance = [[NSDateFormatter alloc] init];
     });
     return instance;
@@ -334,11 +334,11 @@
 
 @implementation NSDateComponents (WJExtension)
 
-+ (instancetype)wj_sharedDateComponents
++ (instancetype)sharedDateComponents
 {
     static id instance;
-    static dispatch_once_t wj_sharedDateFormatter_onceToken;
-    dispatch_once(&wj_sharedDateFormatter_onceToken, ^{
+    static dispatch_once_t sharedDateFormatter_onceToken;
+    dispatch_once(&sharedDateFormatter_onceToken, ^{
         instance = [[NSDateComponents alloc] init];
     });
     return instance;

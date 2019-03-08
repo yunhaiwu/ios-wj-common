@@ -42,17 +42,17 @@
     return [[self topViewController] preferredStatusBarStyle];
 }
 
-+(instancetype) wj_instance {
++(instancetype)wjInstance {
     BaseWJNavigationController *instance = [[self alloc] init];
     return instance;
 }
 
-+(instancetype) wj_instance:(UIViewController*) rootViewController {
++(instancetype)wjInstance:(UIViewController*) rootViewController {
     if (rootViewController) {
         BaseWJNavigationController *instance = [[self alloc] initWithRootViewController:rootViewController];
         return instance;
     }
-    return [self wj_instance];
+    return [self wjInstance];
 }
 
 -(BOOL)shouldAutorotate {

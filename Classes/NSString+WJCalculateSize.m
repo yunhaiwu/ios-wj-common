@@ -18,11 +18,11 @@
 
 @implementation NSString (WJCalculateSize)
 
--(CGSize)wj_sizeWithFont:(UIFont *)font boundingSize:(CGSize) aSize mode:(NSLineBreakMode)mode {
-    return [self wj_sizeWithFont:font boundingSize:aSize mode:mode lineSpacing:0];
+-(CGSize)wjSizeWithFont:(UIFont *)font boundingSize:(CGSize) aSize mode:(NSLineBreakMode)mode {
+    return [self wjSizeWithFont:font boundingSize:aSize mode:mode lineSpacing:0];
 }
 
--(CGSize)wj_sizeWithFont:(UIFont *)font boundingSize:(CGSize) aSize mode:(NSLineBreakMode)mode lineSpacing:(CGFloat) spacing {
+-(CGSize)wjSizeWithFont:(UIFont *)font boundingSize:(CGSize) aSize mode:(NSLineBreakMode)mode lineSpacing:(CGFloat) spacing {
     CGSize s = CGSizeZero;
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_7_0
     s = [self sizeWithFont:font constrainedToSize:aSize lineBreakMode:mode];

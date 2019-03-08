@@ -24,7 +24,7 @@
 /**
  *  设置字体
  */
--(void)wj_setFont:(UIFont*)font;
+-(void)wjSetFont:(UIFont*)font;
 
 
 @end

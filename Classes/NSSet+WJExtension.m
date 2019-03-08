@@ -18,29 +18,28 @@
 
 @implementation NSSet (WJExtension)
 
-- (id) wj_first {
+- (id)wjFirst {
     NSArray *allObjects = self.allObjects;
-    
     if (allObjects.count > 0)
         return allObjects[0];
     return nil;
 }
 
-- (id) wj_last {
+- (id)wjLast {
     return self.allObjects.lastObject;
 }
 
-- (id) wj_sample {
-    return [self.allObjects wj_sample];
+- (id)wjSample {
+    return [self.allObjects wjSample];
 }
 
-- (void) wj_each:(void (^)(id))block {
+- (void)wjEach:(void (^)(id))block {
     [self enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
         block(obj);
     }];
 }
 
-- (void) wj_eachWithIndex:(void (^)(id object, NSUInteger index))block {
+- (void)wjEachWithIndex:(void (^)(id object, NSUInteger index))block {
     __block int counter = 0;
     [self enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
         block(obj, counter);
@@ -48,7 +47,7 @@
     }];
 }
 
-- (NSArray *) wj_map:(id (^)(id object))block {
+- (NSArray*)wjMap:(id (^)(id object))block {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];
     
     for (id object in self) {
@@ -59,7 +58,7 @@
     return array;
 }
 
-- (NSArray *) wj_select:(BOOL (^)(id object))block {
+- (NSArray*)wjSelect:(BOOL (^)(id object))block {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];
     
     for (id object in self) {
@@ -71,7 +70,7 @@
     return array;
 }
 
-- (NSArray *) wj_reject:(BOOL (^)(id object))block {
+- (NSArray*)wjReject:(BOOL (^)(id object))block {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:self.count];
     
     for (id object in self) {
@@ -83,7 +82,7 @@
     return array;
 }
 
-- (NSArray *) wj_sort {
+- (NSArray*)wjSort {
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:nil ascending:YES];
     return [self sortedArrayUsingDescriptors:@[sortDescriptor]];
 }

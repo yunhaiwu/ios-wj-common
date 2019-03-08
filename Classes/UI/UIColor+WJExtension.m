@@ -17,11 +17,11 @@
 
 @implementation UIColor (WJExtension)
 
-+(UIColor*) wj_colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue {
-    return [UIColor wj_colorWithRed:red green:green blue:blue alpha:1.0f];
++(UIColor*) wjColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue {
+    return [UIColor wjColorWithRed:red green:green blue:blue alpha:1.0f];
 }
 
-+(UIColor*) wj_colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha {
++(UIColor*) wjColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha {
     if (red > 1 || green > 1 || blue > 1) {
         return [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:alpha];
     }
@@ -29,12 +29,12 @@
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
-+(UIColor*) wj_colorWithHex:(int) hex {
++(UIColor*) wjColorWithHex:(int) hex {
     
     return [UIColor colorWithRed:(((hex & 0xFF0000) >> 16))/255.0f green:(((hex &0xFF00) >>8))/255.0f blue:((hex &0xFF))/255.0f alpha:1.0f];
 }
 
-+(UIColor*) wj_colorWithHexString:(NSString*) hexString {
++(UIColor*) wjColorWithHexString:(NSString*) hexString {
     //删除字符串中的空格
     NSString *cString = [[hexString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     // String should be 6 or 8 characters
@@ -76,7 +76,7 @@
     [[NSScanner scannerWithString:rString] scanHexInt:&r];
     [[NSScanner scannerWithString:gString] scanHexInt:&g];
     [[NSScanner scannerWithString:bString] scanHexInt:&b];
-    return [UIColor wj_colorWithRed:r green:g blue:b alpha:1.0f];
+    return [UIColor wjColorWithRed:r green:g blue:b alpha:1.0f];
 }
 
 

@@ -20,13 +20,13 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        [self wj_registerForKVO];
+        [self wjRegisterForKVO];
     }
     return self;
 }
 
 -(void)dealloc {
-    [self wj_unregisterFromKVO];
+    [self wjUnregisterFromKVO];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -35,21 +35,21 @@
 }
 
 #pragma mark KVO
--(NSKeyValueObservingOptions)wj_observerOptionsForKeypath:(NSString*) keyPath {
+-(NSKeyValueObservingOptions)wjObserverOptionsForKeypath:(NSString*) keyPath {
     return NSKeyValueObservingOptionNew;
 }
 
-- (void)wj_registerForKVO {
-    NSArray *keypaths = [self wj_observableKeypaths];
+- (void)wjRegisterForKVO {
+    NSArray *keypaths = [self wjObservableKeypaths];
     if (keypaths && keypaths.count > 0) {
         for (NSString *keyPath in keypaths) {
-            [self addObserver:self forKeyPath:keyPath options:[self wj_observerOptionsForKeypath:keyPath] context:NULL];
+            [self addObserver:self forKeyPath:keyPath options:[self wjObserverOptionsForKeypath:keyPath] context:NULL];
         }
     }
 }
 
-- (void)wj_unregisterFromKVO {
-    NSArray *keypaths = [self wj_observableKeypaths];
+- (void)wjUnregisterFromKVO {
+    NSArray *keypaths = [self wjObservableKeypaths];
     if (keypaths && keypaths.count > 0) {
         for (NSString *keyPath in keypaths) {
             [self removeObserver:self forKeyPath:keyPath];
@@ -57,15 +57,15 @@
     }
 }
 
-- (NSArray*)wj_observableKeypaths {
+- (NSArray*)wjObservableKeypaths {
     return nil;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    [self wj_changeForKeypath:keyPath change:change];
+    [self wjChangeForKeypath:keyPath change:change];
 }
 
--(void)wj_changeForKeypath:(NSString *)keyPath change:(NSDictionary *)change {}
+-(void)wjChangeForKeypath:(NSString *)keyPath change:(NSDictionary *)change {}
 
 
 @end
